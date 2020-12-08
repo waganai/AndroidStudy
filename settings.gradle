@@ -1,2 +1,3 @@
+include ':ViewStudy'
 include ':app'
 rootProject.name = "StudyDemo"
