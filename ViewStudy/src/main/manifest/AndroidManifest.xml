@@ -3,7 +3,10 @@
     package="com.hubiao.view">
 
     <application android:name=".SimpleApplication">
-        <activity android:name=".LayoutActivity">
+        <activity
+            android:name=".LayoutActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -11,6 +14,10 @@
 
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ConstraintLayoutActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar" />
 
     </application>
 

@@ -3,7 +3,15 @@
     package="com.hubiao.view">
 
     <application>
-        <activity android:name=".LayoutActivity" />
+        <activity
+            android:name=".LayoutActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar" />
+
+        <activity
+            android:name=".ConstraintLayoutActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar" />
 
     </application>
 
