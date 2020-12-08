@@ -1,7 +1,6 @@
 package com.hubiao.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 
@@ -25,15 +24,9 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
             KeyEvent.KEYCODE_BACK -> {
-                Log.e(TAG, "onKeyDown() KeyEvent.KEYCODE_BACK")
-
                 if (supportFragmentManager.findFragmentByTag("ConstraintLayout") != null) {
-                    Log.e(TAG, "onKeyDown() KeyEvent.KEYCODE_BACK if (supportFragmentManager.findFragmentByTag(\"ConstraintLayout\") != null)"  )
-
                     super.onKeyDown(keyCode, event)
                 } else {
-                    Log.e(TAG, "onKeyDown() KeyEvent.KEYCODE_BACK if (supportFragmentManager.findFragmentByTag(\"ConstraintLayout\") == null)"  )
-
                     backToOriginalFragment()
                     false
                 }

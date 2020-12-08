@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class ConstraintLayoutFragment : Fragment() {
@@ -12,6 +13,7 @@ class ConstraintLayoutFragment : Fragment() {
     private var mRootView: View? = null
 
     private var mLayout1Btn: Button? = null
+    private var mTvTips: TextView? = null
 
     private var mConstraintLayoutFragmentListener: ConstraintLayoutFragmentListener? = null
 
@@ -33,6 +35,13 @@ class ConstraintLayoutFragment : Fragment() {
 
     private fun init() {
         mLayout1Btn = mRootView?.findViewById(R.id.btn_layout1)
+        mTvTips = mRootView?.findViewById(R.id.tv_tips)
+
+        mTvTips?.text =
+            "使用ConstraintLayout需要注意：\n" +
+                    "1.ConstraintLayout 是不支持match_parent属性的，可以使用0dp配合该方向两端的约束实现；\n" +
+                    "2.ConstraintLayout 也不支持为负数的margin，可以使用space辅助定位；\n"
+
 
         mLayout1Btn?.setOnClickListener {
             mConstraintLayoutFragmentListener?.onShowLayout1()
