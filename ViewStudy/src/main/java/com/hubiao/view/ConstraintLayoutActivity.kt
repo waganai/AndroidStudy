@@ -1,9 +1,15 @@
 package com.hubiao.view
 
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 
 class ConstraintLayoutActivity : AppCompatActivity() {
+
+    companion object {
+        val TAG: String = ConstraintLayoutActivity::class.java.simpleName
+    }
 
     private val mConstraintLayoutFragment = ConstraintLayoutFragment()
     private var mLayout1Fragment: OnlyUIFragment? = null
@@ -16,11 +22,24 @@ class ConstraintLayoutActivity : AppCompatActivity() {
         initUI()
     }
 
-    override fun onBackPressed() {
-        if (supportFragmentManager.findFragmentByTag("ConstraintLayout") != null)
-            super.onBackPressed()
-        else
-            backToOriginalFragment()
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        return when (keyCode) {
+            KeyEvent.KEYCODE_BACK -> {
+                Log.e(TAG, "onKeyDown() KeyEvent.KEYCODE_BACK")
+
+                if (supportFragmentManager.findFragmentByTag("ConstraintLayout") != null) {
+                    Log.e(TAG, "onKeyDown() KeyEvent.KEYCODE_BACK if (supportFragmentManager.findFragmentByTag(\"ConstraintLayout\") != null)"  )
+
+                    super.onKeyDown(keyCode, event)
+                } else {
+                    Log.e(TAG, "onKeyDown() KeyEvent.KEYCODE_BACK if (supportFragmentManager.findFragmentByTag(\"ConstraintLayout\") == null)"  )
+
+                    backToOriginalFragment()
+                    false
+                }
+            }
+            else -> super.onKeyDown(keyCode, event)
+        }
     }
 
     private fun initUI() {
@@ -52,5 +71,6 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun backToOriginalFragment() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fl_container, mConstraintLayoutFragment, "ConstraintLayout")
+        transaction.commit()
     }
 }
