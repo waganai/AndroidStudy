@@ -11,7 +11,7 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     }
 
     private val mConstraintLayoutFragment = ConstraintLayoutFragment()
-    private var mLayout1Fragment: OnlyUIFragment? = null
+    private var mRelativePositionFragment: OnlyUIFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +49,11 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     }
 
     private fun showLayout1() {
-        if (mLayout1Fragment == null) {
-            mLayout1Fragment = OnlyUIFragment.buildOnlyUIFragment(0)
+        if (mRelativePositionFragment == null) {
+            mRelativePositionFragment = OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
         }
 
-        mLayout1Fragment?.let {
+        mRelativePositionFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
             transaction.replace(R.id.fl_container, it, "Layout1")
