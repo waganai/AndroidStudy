@@ -9,23 +9,100 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btn_layout1"
+            android:id="@+id/btn_relative_position"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="ConstraintLayout-1"
+            android:text="Relative Positioning"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/btn_margin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Margin"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_relative_position" />
+
+        <Button
+            android:id="@+id/btn_centering_position"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Centering Position"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_margin" />
+
+        <Button
+            android:id="@+id/btn_circular_position"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Circular Position"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_centering_position" />
+
+        <Button
+            android:id="@+id/btn_visibility_behavior"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Visibility behavior"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_circular_position" />
+
+        <Button
+            android:id="@+id/btn_dimension_constraint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Dimension constraint"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_visibility_behavior" />
+
+        <Button
+            android:id="@+id/btn_chains"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Chains"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_dimension_constraint" />
+
+        <Button
+            android:id="@+id/btn_virtual_helpers_objects"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Virtual Helpers objects"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_chains" />
+
+        <Button
+            android:id="@+id/btn_optimizer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Optimizer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_virtual_helpers_objects" />
+
         <TextView
             android:id="@+id/tv_tips"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="ConstraintLayout里面不可以使用负数的margin，也没有march_parent属性"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="ConstraintLayout里面不可以使用负数的margin，也没有march_parent属性"
-            app:layout_constraintTop_toBottomOf="@id/btn_layout1" />
+            app:layout_constraintTop_toBottomOf="@id/btn_optimizer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

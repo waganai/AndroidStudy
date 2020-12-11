@@ -34,13 +34,14 @@ class ConstraintLayoutFragment : Fragment() {
     }
 
     private fun init() {
-        mLayout1Btn = mRootView?.findViewById(R.id.btn_layout1)
+        mLayout1Btn = mRootView?.findViewById(R.id.btn_relative_position)
         mTvTips = mRootView?.findViewById(R.id.tv_tips)
 
         mTvTips?.text =
             "使用ConstraintLayout需要注意：\n" +
                     "1.ConstraintLayout 是不支持match_parent属性的，可以使用0dp配合该方向两端的约束实现；\n" +
-                    "2.ConstraintLayout 也不支持为负数的margin，可以使用space辅助定位；\n"
+                    "2.ConstraintLayout 也不支持为负数的margin，可以使用space辅助定位；\n" +
+                    "3.ConstraintLayout中想和某一个控件水平或者垂直对齐，可以利用另一个控件的上下两端或者左右两端进行约束"
 
 
         mLayout1Btn?.setOnClickListener {
