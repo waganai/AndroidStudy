@@ -97,7 +97,7 @@ class ConstraintLayoutActivity : AppCompatActivity() {
         mRelativePositionFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "RelativePosition")
             transaction.commit()
         }
     }
@@ -105,13 +105,13 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showMargin() {
         if (mMarginFragment == null) {
             mMarginFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
+                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_margin)
         }
 
         mMarginFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "Margin")
             transaction.commit()
         }
     }
@@ -119,13 +119,13 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showCenteringPosition() {
         if (mCenteringPositionFragment == null) {
             mCenteringPositionFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
+                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_centering_position)
         }
 
         mCenteringPositionFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "CenteringPosition")
             transaction.commit()
         }
     }
@@ -133,12 +133,12 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showCircularPosition() {
         if (mCircularPositionFragment == null) {
             mCircularPositionFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
+                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_circular_position)
         }
         mCircularPositionFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "CircularPosition")
             transaction.commit()
         }
     }
@@ -146,12 +146,12 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showVisibilityBehavior() {
         if (mVisibilityBehaviorFragment == null) {
             mVisibilityBehaviorFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
+                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_visibility_behavior)
         }
         mVisibilityBehaviorFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "VisibilityBehavior")
             transaction.commit()
         }
     }
@@ -159,12 +159,12 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showDimensionConstraint() {
         if (mDimensionConstraintFragment == null) {
             mDimensionConstraintFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
+                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_dimension_constraint)
         }
         mDimensionConstraintFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "DimensionConstraint")
             transaction.commit()
         }
     }
@@ -172,12 +172,12 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showChains() {
         if (mChainsFragment == null) {
             mChainsFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
+                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_chains)
         }
         mChainsFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "Chains")
             transaction.commit()
         }
     }
@@ -185,12 +185,12 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showVirtualHelpersObjects() {
         if (mVirtualHelperFragment == null) {
             mVirtualHelperFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
+                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_virtual_helpers_objects)
         }
         mVirtualHelperFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "VirtualHelpersObjects")
             transaction.commit()
         }
     }
@@ -198,12 +198,12 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showOptimizer() {
         if (mOptimizerFragment == null) {
             mOptimizerFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_relative_positioning)
+                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_optimizer)
         }
         mOptimizerFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fl_container, it, "Layout1")
+            transaction.replace(R.id.fl_container, it, "Optimizer")
             transaction.commit()
         }
     }

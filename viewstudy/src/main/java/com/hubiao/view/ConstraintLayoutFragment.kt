@@ -9,10 +9,16 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class ConstraintLayoutFragment : Fragment() {
-
     private var mRootView: View? = null
 
     private var mRelativePositionBtn: Button? = null
+    private var mMarginBtn: Button? = null
+    private var mCenteringBtn: Button? = null
+    private var mCircularBtn: Button? = null
+    private var mVisibilityBtn: Button? = null
+    private var mDimensionBtn: Button? = null
+    private var mOptimizerBtn: Button? = null
+    private var mChainsBtn: Button? = null
     private var mTvTips: TextView? = null
 
     private var mConstraintLayoutFragmentListener: ConstraintLayoutFragmentListener? = null
@@ -45,6 +51,38 @@ class ConstraintLayoutFragment : Fragment() {
 
         mRelativePositionBtn?.setOnClickListener {
             mConstraintLayoutFragmentListener?.onShowRelativePosition()
+        }
+
+        mRootView?.findViewById<View>(R.id.btn_margin)?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowMargin()
+        }
+
+        mRootView?.findViewById<Button>(R.id.btn_centering_position)?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowCenteringPosition()
+        }
+
+        mRootView?.findViewById<Button>(R.id.btn_circular_position)?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowCircularPosition()
+        }
+
+        mRootView?.findViewById<Button>(R.id.btn_visibility_behavior)?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowVisibilityBehavior()
+        }
+
+        mRootView?.findViewById<Button>(R.id.btn_dimension_constraint)?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowDimensionConstraint()
+        }
+
+        mRootView?.findViewById<Button>(R.id.btn_chains)?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowChains()
+        }
+
+        mRootView?.findViewById<Button>(R.id.btn_virtual_helpers_objects)?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowVirtualHelpersObjects()
+        }
+
+        mRootView?.findViewById<Button>(R.id.btn_optimizer)?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowOptimizer()
         }
     }
 
