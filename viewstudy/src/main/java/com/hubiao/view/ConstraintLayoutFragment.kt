@@ -12,7 +12,7 @@ class ConstraintLayoutFragment : Fragment() {
 
     private var mRootView: View? = null
 
-    private var mLayout1Btn: Button? = null
+    private var mRelativePositionBtn: Button? = null
     private var mTvTips: TextView? = null
 
     private var mConstraintLayoutFragmentListener: ConstraintLayoutFragmentListener? = null
@@ -34,7 +34,7 @@ class ConstraintLayoutFragment : Fragment() {
     }
 
     private fun init() {
-        mLayout1Btn = mRootView?.findViewById(R.id.btn_relative_position)
+        mRelativePositionBtn = mRootView?.findViewById(R.id.btn_relative_position)
         mTvTips = mRootView?.findViewById(R.id.tv_tips)
 
         mTvTips?.text =
@@ -43,9 +43,8 @@ class ConstraintLayoutFragment : Fragment() {
                     "2.ConstraintLayout 也不支持为负数的margin，可以使用space辅助定位；\n" +
                     "3.ConstraintLayout中想和某一个控件水平或者垂直对齐，可以利用另一个控件的上下两端或者左右两端进行约束"
 
-
-        mLayout1Btn?.setOnClickListener {
-            mConstraintLayoutFragmentListener?.onShowLayout1()
+        mRelativePositionBtn?.setOnClickListener {
+            mConstraintLayoutFragmentListener?.onShowRelativePosition()
         }
     }
 
@@ -53,7 +52,23 @@ class ConstraintLayoutFragment : Fragment() {
         mConstraintLayoutFragmentListener = listener
     }
 
-    public interface ConstraintLayoutFragmentListener {
-        fun onShowLayout1()
+    interface ConstraintLayoutFragmentListener {
+        fun onShowRelativePosition()
+
+        fun onShowMargin()
+
+        fun onShowCenteringPosition()
+
+        fun onShowCircularPosition()
+
+        fun onShowVisibilityBehavior()
+
+        fun onShowDimensionConstraint()
+
+        fun onShowChains()
+
+        fun onShowVirtualHelpersObjects()
+
+        fun onShowOptimizer()
     }
 }

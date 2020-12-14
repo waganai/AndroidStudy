@@ -73,6 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Chains"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_dimension_constraint" />
@@ -82,6 +83,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Virtual Helpers objects"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_chains" />
@@ -91,6 +93,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Optimizer"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_virtual_helpers_objects" />
@@ -100,6 +103,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="ConstraintLayout里面不可以使用负数的margin，也没有march_parent属性"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_optimizer" />
