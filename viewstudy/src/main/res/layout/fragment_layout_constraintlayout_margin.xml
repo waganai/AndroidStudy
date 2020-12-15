@@ -13,13 +13,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Margin"
+            android:text="Margin，似乎只有被约束的控件的margin才有效"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_child_margin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,10 +58,58 @@
                 android:id="@+id/tv2_child_margin"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
-                android:background="@android:color/holo_orange_light"
                 android:layout_marginStart="30dp"
+                android:background="@android:color/holo_orange_light"
                 app:layout_constraintStart_toEndOf="@+id/tv1_child_margin"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_child_margin" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_child_margin"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/divider_margin_bias"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@android:color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:id="@+id/tv_title_margin_bias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Margin Bias"
+                app:layout_constraintTop_toBottomOf="@+id/divider_margin_bias"/>
+
+            <TextView
+                android:id="@+id/tv1_margin_bias"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="测试测试测试测试测试测试"
+                android:background="@android:color/holo_red_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_margin_bias"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="测试测试测试测试测试测试"
+                android:background="@android:color/holo_blue_light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv1_margin_bias"
+                app:layout_constraintHorizontal_bias="0.1"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
