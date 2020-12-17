@@ -210,6 +210,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv2_bias_position" />
 
+            <TextView
+                android:id="@+id/tv7_bias_position"
+                android:layout_width="300dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="20dp"
+                android:text="即bias值=子View左相关的长度/(子View左相关的长度+其右相关的长度)"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@+id/tv3_bias_position"
+                android:background="@android:color/holo_green_light"
+                android:layout_height="150dp"/>
+
+            <TextView
+                android:id="@+id/tv8_bias_position"
+                android:layout_width="30dp"
+                android:background="@android:color/holo_red_light"
+                app:layout_constraintEnd_toEndOf="@+id/tv7_bias_position"
+                app:layout_constraintStart_toStartOf="@+id/tv7_bias_position"
+                app:layout_constraintTop_toTopOf="@+id/tv7_bias_position"
+                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintBottom_toBottomOf="@+id/tv7_bias_position"
+                android:layout_height="30dp"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
