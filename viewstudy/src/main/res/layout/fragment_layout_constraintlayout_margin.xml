@@ -176,11 +176,13 @@
                 android:layout_height="150dp"
                 android:background="@android:color/holo_purple"
                 app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@android:color/white"
+                android:text="当被约束的View被设置为Gone时，其margin将不再起作用，这时可以使用layout_goneMarginEnd等属性"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_gone_margin" />
 
             <TextView
                 android:id="@+id/tv2_gone_margin"
-                android:layout_width="150dp"
+                android:layout_width="180dp"
                 android:layout_height="150dp"
                 android:background="@android:color/holo_orange_light"
                 android:gravity="center"
