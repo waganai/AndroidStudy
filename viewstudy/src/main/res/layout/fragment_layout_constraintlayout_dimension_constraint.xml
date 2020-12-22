@@ -109,11 +109,11 @@
             <View
                 android:id="@+id/divider_wrap_content_constrained"
                 android:layout_width="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="1dp"
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_height="1dp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_title_wrap_content_constrained"
@@ -175,6 +175,87 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_tips_wrap_content_constrained" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_dimension_max_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_wrap_content_constrained">
+
+            <View
+                android:id="@+id/divider_dimension_max_min"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title_dimension_max_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:text="max min"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_dimension_max_min" />
+
+            <TextView
+                android:id="@+id/btn_content_less_max_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_purple"
+                android:text="Content Less"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_dimension_max_min" />
+
+            <TextView
+                android:id="@+id/btn_content_more_max_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_purple"
+                android:text="Content More"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_dimension_max_min" />
+
+            <TextView
+                android:id="@+id/tv_tips_wrap_content_max_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_green_light"
+                android:text="下面的TextView的android:minWidth=10dp, android:maxWidth=200dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_content_less_max_min" />
+
+            <TextView
+                android:id="@+id/tv1_wrap_content_max_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="10dp"
+                android:maxWidth="200dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
+                android:background="@android:color/holo_orange_light"
+                android:text=""
+                android:textColor="@color/white"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_tips_wrap_content_max_min" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

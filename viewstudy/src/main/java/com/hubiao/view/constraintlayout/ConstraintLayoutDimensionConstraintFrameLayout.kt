@@ -24,6 +24,10 @@ class ConstraintLayoutDimensionConstraintFrameLayout : Fragment() {
     private var mBtnContentMoreConstrained: TextView? = null
     private var mTvWrapContent1Constrained: TextView? = null
 
+    private var mBtnContentLessMaxMin: TextView? = null
+    private var mBtnContentMoreMaxMin: TextView? = null
+    private var mTvWrapContent1MaxMin: TextView? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -60,6 +64,12 @@ class ConstraintLayoutDimensionConstraintFrameLayout : Fragment() {
         mBtnContentMoreConstrained = view?.findViewById(R.id.btn_content_more_constrained)
 
         mTvWrapContent1Constrained = view?.findViewById(R.id.tv1_wrap_content_constrained)
+
+        // max min
+        mBtnContentLessMaxMin = view?.findViewById(R.id.btn_content_less_max_min)
+        mBtnContentMoreMaxMin = view?.findViewById(R.id.btn_content_more_max_min)
+
+        mTvWrapContent1MaxMin = view?.findViewById(R.id.tv1_wrap_content_max_min)
     }
 
     private fun initListener() {
@@ -86,6 +96,23 @@ class ConstraintLayoutDimensionConstraintFrameLayout : Fragment() {
 
         mBtnContentMoreConstrained?.setOnClickListener {
             mTvWrapContent1Constrained?.text = "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
+                    "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美"
+        }
+
+        mBtnContentLessMaxMin?.setOnClickListener {
+            mTvWrapContent1MaxMin?.text = ""
+        }
+
+        mBtnContentMoreMaxMin?.setOnClickListener {
+            mTvWrapContent1MaxMin?.text = "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
                     "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
                     "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
                     "升值加薪迎娶白富美，升值加薪迎娶白富美， 升值加薪迎娶白富美，升值加薪迎娶白富美" +
