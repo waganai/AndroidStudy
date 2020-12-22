@@ -28,7 +28,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_title">
 
             <View
-                android:id="@+id/divider_parent_margin"
+                android:id="@+id/divider_wrap_content"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="@android:color/black"
@@ -37,56 +37,144 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_title_parent_margin"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_title_wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="start"
-                android:text="实际上ConstraintLayout的约束对wrap_content是不起作用的，需要约束wrap_content的话，
-                只能在ConstraintLayout1.1之后使用app:constrained_width/app:constrained_heighth属性"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:text="实际上ConstraintLayout的约束对wrap_content是不起作用的，需要约束wrap_content的话，只能在ConstraintLayout1.1之后使用app:constrained_width/app:constrained_heighth属性"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_parent_margin" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_wrap_content" />
 
             <TextView
-                android:id="@+id/tv1_parent_margin"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:id="@+id/btn_content_less"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_green_light"
+                android:text="Content Less"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_wrap_content" />
+
+            <TextView
+                android:id="@+id/btn_content_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_green_light"
+                android:text="Content More"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_tips_wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_blue_light"
+                android:text="下面的TextView的android:layout_marginStart=20dp, android:layout_marginEnd=40dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_content_less" />
+
+            <TextView
+                android:id="@+id/tv1_wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
                 android:background="@android:color/holo_red_light"
+                android:text="升值加薪赢取白富美，升值加薪赢取白富美"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_parent_margin" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_tips_wrap_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_wrap_content_constrained"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_wrap_content_dimension">
+
+            <View
+                android:id="@+id/divider_wrap_content_constrained"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="1dp"/>
 
             <TextView
-                android:id="@+id/tv2_parent_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_marginStart="100dp"
-                android:layout_marginEnd="60dp"
-                android:background="@android:color/holo_blue_light"
-                android:gravity="start"
-                android:text="升职加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职
-                加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职
-                加薪迎娶白富美，升职加薪迎娶白富美"
+                android:id="@+id/tv_title_wrap_content_constrained"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:text="可以使用app:layout_constrainedWidth和app:layout_constrainedHeight设置wrap_content是否被约束"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv1_parent_margin" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_wrap_content_constrained" />
 
             <TextView
+                android:id="@+id/btn_content_less_constrained"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginEnd="60dp"
-                android:background="@android:color/holo_green_light"
-                android:gravity="start"
-                android:text="升职加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职
-                加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职加薪迎娶白富美，升职
-                加薪迎娶白富美，升职加薪迎娶白富美"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_orange_light"
+                android:text="Content Less"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_wrap_content_constrained" />
+
+            <TextView
+                android:id="@+id/btn_content_more_constrained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_orange_light"
+                android:text="Content More"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_wrap_content_constrained" />
+
+            <TextView
+                android:id="@+id/tv_tips_wrap_content_constrained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_red_light"
+                android:text="下面的TextView的android:layout_marginStart=20dp, android:layout_marginEnd=40dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_content_less_constrained" />
+
+            <TextView
+                android:id="@+id/tv1_wrap_content_constrained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
+                android:background="@android:color/holo_blue_light"
+                android:text="升值加薪赢取白富美，升值加薪赢取白富美"
+                android:textColor="@color/white"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv2_parent_margin" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_tips_wrap_content_constrained" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
