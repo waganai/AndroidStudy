@@ -3,6 +3,7 @@ package com.hubiao.view
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
+import com.hubiao.view.constraintlayout.ConstraintLayoutVisibilityBehaviorFragment
 
 class ConstraintLayoutActivity : AppCompatActivity() {
 
@@ -15,7 +16,7 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private var mMarginFragment: OnlyUIFragment? = null
     private var mCenteringPositionFragment: OnlyUIFragment? = null
     private var mCircularPositionFragment: OnlyUIFragment? = null
-    private var mVisibilityBehaviorFragment: OnlyUIFragment? = null
+    private var mVisibilityBehaviorFragment: ConstraintLayoutVisibilityBehaviorFragment? = null
     private var mDimensionConstraintFragment: OnlyUIFragment? = null
     private var mChainsFragment: OnlyUIFragment? = null
     private var mVirtualHelperFragment: OnlyUIFragment? = null
@@ -146,7 +147,7 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showVisibilityBehavior() {
         if (mVisibilityBehaviorFragment == null) {
             mVisibilityBehaviorFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_visibility_behavior)
+                ConstraintLayoutVisibilityBehaviorFragment.buildFragment()
         }
         mVisibilityBehaviorFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()

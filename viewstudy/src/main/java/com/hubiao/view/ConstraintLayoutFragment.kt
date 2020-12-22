@@ -12,13 +12,7 @@ class ConstraintLayoutFragment : Fragment() {
     private var mRootView: View? = null
 
     private var mRelativePositionBtn: Button? = null
-    private var mMarginBtn: Button? = null
-    private var mCenteringBtn: Button? = null
-    private var mCircularBtn: Button? = null
-    private var mVisibilityBtn: Button? = null
-    private var mDimensionBtn: Button? = null
-    private var mOptimizerBtn: Button? = null
-    private var mChainsBtn: Button? = null
+
     private var mTvTips: TextView? = null
 
     private var mConstraintLayoutFragmentListener: ConstraintLayoutFragmentListener? = null
