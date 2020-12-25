@@ -280,24 +280,122 @@
                 android:id="@+id/tv_exact_dimension"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/holo_red_light"
                 android:text="android:layout_width=150dp, android:layout_height=150dp"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_margin="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/divider_exact_match_constraint_dimension" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="100dp"
+                android:layout_marginTop="10dp"
                 android:background="@android:color/holo_blue_light"
-                android:textColor="@color/white"
                 android:text="android:layout_width=0dp, android:layout_height=100dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_exact_dimension" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_dimension_ratio"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_exact_match_constraint_dimension">
+
+            <View
+                android:id="@+id/divider_dimension_ratio"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title_dimension_ratio"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="20dp"
+                android:text="app:layout_constraintDimensionRatio=1:2类似这样的形式，都代表width:height，
+                app:layout_constraintDimensionRatio=w, 1:2，都代表x,yValue:xValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="10dp"
+                app:layout_constraintTop_toBottomOf="@id/divider_dimension_ratio"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv1_dimension_ratio"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_blue_light"
+                android:text=" android:layout_width=100dp, android:layout_height=0dp, app:layout_constraintDimensionRatio=1:2"
+                android:textColor="@color/white"
+                app:layout_constraintDimensionRatio="1:2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_dimension_ratio" />
+
+            <TextView
+                android:id="@+id/tv2_dimension_ratio"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_red_light"
+                android:text=" android:layout_width=0dp, android:layout_height=200dp, app:layout_constraintDimensionRatio=1:2"
+                android:textColor="@color/white"
+                app:layout_constraintDimensionRatio="1:2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv1_dimension_ratio" />
+
+            <TextView
+                android:id="@+id/tv3_dimension_ratio"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_green_light"
+                android:text="width=0dp, height=0dp, Ratio=4:1"
+                android:textColor="@color/white"
+                app:layout_constraintDimensionRatio="4:1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_exact_dimension"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv2_dimension_ratio" />
+
+            <TextView
+                android:id="@+id/tv4_dimension_ratio"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_orange_light"
+                android:text="width=0dp, height=0dp, Ratio=w, 2:1"
+                android:textColor="@color/white"
+                app:layout_constraintDimensionRatio="w, 2:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv3_dimension_ratio" />
+
+            <TextView
+                android:id="@+id/tv5_dimension_ratio"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_purple"
+                android:text="width=0dp, height=0dp, Ratio=h, 2:1"
+                android:textColor="@color/white"
+                app:layout_constraintDimensionRatio="h, 2:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv4_dimension_ratio" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
