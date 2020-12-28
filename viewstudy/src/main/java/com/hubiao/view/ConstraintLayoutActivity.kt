@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import com.hubiao.view.constraintlayout.ConstraintLayoutDimensionConstraintFrameLayout
+import com.hubiao.view.constraintlayout.ConstraintLayoutVirtualHelpersFragment
 import com.hubiao.view.constraintlayout.ConstraintLayoutVisibilityBehaviorFragment
 
 class ConstraintLayoutActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private var mVisibilityBehaviorFragment: ConstraintLayoutVisibilityBehaviorFragment? = null
     private var mDimensionConstraintFragment: ConstraintLayoutDimensionConstraintFrameLayout? = null
     private var mChainsFragment: OnlyUIFragment? = null
-    private var mVirtualHelperFragment: OnlyUIFragment? = null
+    private var mVirtualHelperFragment: ConstraintLayoutVirtualHelpersFragment? = null
     private var mOptimizerFragment: OnlyUIFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -187,7 +188,7 @@ class ConstraintLayoutActivity : AppCompatActivity() {
     private fun showVirtualHelpersObjects() {
         if (mVirtualHelperFragment == null) {
             mVirtualHelperFragment =
-                OnlyUIFragment.buildOnlyUIFragment(R.layout.fragment_layout_constraintlayout_virtual_helpers_objects)
+                ConstraintLayoutVirtualHelpersFragment.buildFragment()
         }
         mVirtualHelperFragment?.let {
             val transaction = supportFragmentManager.beginTransaction()

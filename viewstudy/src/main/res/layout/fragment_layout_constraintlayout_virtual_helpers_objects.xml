@@ -1,18 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Virtual Helpers Objects"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Virtual Helpers Objects"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_guideline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+            <View
+                android:id="@+id/divider_guidelines"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GuideLines"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_guidelines" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="100dp" />
+
+            <TextView
+                android:id="@+id/tv1_guideline"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_red_light"
+                android:text="line1 orientation = vertical, app:layout_constraintGuide_begin=100dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@id/line1"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_guideline" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/tv2_guideline"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/holo_blue_light"
+                android:text="line1 orientation = horizontal, app:layout_constraintGuide_percent=0.5"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/line2"
+                app:layout_constraintTop_toBottomOf="@id/tv1_guideline" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/tv3_line"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:background="@android:color/holo_purple"
+                android:text="android:orientation=horizontal, app:layout_constraintGuide_percent=0.5"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_barrier"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_guideline">
+
+            <View
+                android:id="@+id/divider_barrier"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barrier"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_barrier" />
+
+            <TextView
+                android:id="@+id/tv_a_short"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="A short"
+                android:clickable="true"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_barrier" />
+
+            <TextView
+                android:id="@+id/tv_b_short"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="B short"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_barrier" />
+
+            <TextView
+                android:id="@+id/tv1_barrier"
+                android:layout_width="200px"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_red_light"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_a_short" />
+
+            <TextView
+                android:id="@+id/tv2_barrier"
+                android:layout_width="100px"
+                android:layout_height="50dp"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:text="B"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv1_barrier" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="tv1_barrier, tv2_barrier" />
+
+            <TextView
+                android:id="@+id/tv3_barrier"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintStart_toEndOf="@+id/barrier1"
+                app:layout_constraintTop_toBottomOf="@id/tv_a_short" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_barrier">
+
+            <View
+                android:id="@+id/divider_group"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barrier"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_group" />
+
+            <TextView
+                android:id="@+id/tv_show"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:clickable="true"
+                android:text="Show"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_group" />
+
+            <TextView
+                android:id="@+id/tv_hide"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="Hide"
+                android:clickable="true"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_group" />
+
+            <TextView
+                android:id="@+id/tv1_show"
+                android:layout_marginTop="10dp"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="Show 1"
+                android:clickable="true"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_show" />
+
+            <TextView
+                android:id="@+id/tv1_hide"
+                android:layout_width="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="40dp"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="Hide 2"
+                android:clickable="true"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_show" />
+
+            <TextView
+                android:id="@+id/tv1_group"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv1_show" />
+
+            <TextView
+                android:id="@+id/tv2_group"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:color/holo_red_light"
+                android:gravity="center"
+                android:text="A"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv1_show" />
+
+            <TextView
+                android:id="@+id/tv3_group"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv1_show" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group1"
+                android:layout_width="wrap_content"
+                app:constraint_referenced_ids="tv1_group, tv2_group, tv3_group"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
