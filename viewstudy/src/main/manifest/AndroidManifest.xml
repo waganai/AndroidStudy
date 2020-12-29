@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hubiao.view">
 
     <application android:name=".SimpleApplication">
@@ -24,6 +25,12 @@
             android:name=".module.cardview.CardViewActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
+
+        <service
+            android:name="com.didichuxing.doraemonkit.kit.colorpick.ScreenRecorderService"
+            android:enabled="true"
+            android:foregroundServiceType="mediaProjection"
+            tools:targetApi="q" />
 
     </application>
 
