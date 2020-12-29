@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.hubiao.view.module.cardview.CardViewActivity
+import com.hubiao.view.module.constraintlayout.ConstraintLayoutActivity
 
 class LayoutActivity : AppCompatActivity() {
 
@@ -15,5 +17,9 @@ class LayoutActivity : AppCompatActivity() {
 
     fun startConstraintLayoutActivity(view: View) {
         startActivity(Intent(this@LayoutActivity, ConstraintLayoutActivity::class.java))
+    }
+
+    fun startCardViewActivity(view: View) {
+        startActivity(Intent(this@LayoutActivity, CardViewActivity::class.java))
     }
 }

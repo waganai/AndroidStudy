@@ -1,4 +1,4 @@
-package com.hubiao.view.constraintlayout
+package com.hubiao.view.module.constraintlayout
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -14,8 +14,14 @@
 
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".ConstraintLayoutActivity"
+            android:name=".module.constraintlayout.ConstraintLayoutActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar" />
+
+        <activity
+            android:name=".module.cardview.CardViewActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
 

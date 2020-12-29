@@ -1,4 +1,4 @@
-package com.hubiao.view
+package com.hubiao.view.widget
 
 import android.os.Bundle
 import android.util.TypedValue

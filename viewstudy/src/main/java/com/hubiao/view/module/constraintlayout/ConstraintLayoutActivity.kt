@@ -1,11 +1,10 @@
-package com.hubiao.view
+package com.hubiao.view.module.constraintlayout
 
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
-import com.hubiao.view.constraintlayout.ConstraintLayoutDimensionConstraintFrameLayout
-import com.hubiao.view.constraintlayout.ConstraintLayoutVirtualHelpersFragment
-import com.hubiao.view.constraintlayout.ConstraintLayoutVisibilityBehaviorFragment
+import com.hubiao.view.R
+import com.hubiao.view.widget.OnlyUIFragment
 
 class ConstraintLayoutActivity : AppCompatActivity() {
 
