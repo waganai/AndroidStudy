@@ -245,16 +245,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_child"
+            android:id="@+id/layout_layer_type"
             android:layout_width="0dp"
-            android:background="@android:color/holo_blue_light"
             android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_elevation">
 
             <View
-                android:id="@+id/divider_child"
+                android:id="@+id/divider_layer_type"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="@color/black"
@@ -263,32 +263,59 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_title_child"
+                android:id="@+id/tv_title_layer_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="关闭硬件加速对CardView的子View的绘制有影响，比如导致内部的View的圆角消失"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_child" />
+                app:layout_constraintTop_toBottomOf="@id/divider_layer_type" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_layer_type_1"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
-                app:cardCornerRadius="10dp"
                 android:layout_margin="10dp"
+                app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_child">
+                app:layout_constraintTop_toBottomOf="@id/tv_title_layer_type">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    app:cardCornerRadius="5dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="20dp">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/banner_1"/>
+                        android:background="@drawable/banner_1" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_layer_type_2"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layerType="software"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_layer_type_1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="20dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/banner_1" />
 
                 </androidx.cardview.widget.CardView>
 
