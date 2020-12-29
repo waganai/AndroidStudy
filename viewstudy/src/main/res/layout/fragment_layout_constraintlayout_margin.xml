@@ -177,7 +177,7 @@
                 android:background="@android:color/holo_purple"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColor="@android:color/white"
-                android:text="当被约束的View被设置为Gone时，其margin将不再起作用，这时可以使用layout_goneMarginEnd等属性"
+                android:text="只有锚点View为Gone时，goneMargin属性才会起作用"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_gone_margin" />
 
             <TextView
