@@ -118,9 +118,8 @@
                 android:id="@+id/tv_title_evelation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="height = 100dp, cardElevation = 50dp"
-                android:textColor="@color/white"
-                android:textSize="20dp"
+                android:text="CardView的阴影在新的版本绘制在CardView外侧，需要margin支持，否则没有空间绘制显示阴影，阴影的具体范围由cardElevation和translationZ共同决定，值越大，阴影范围越大,实际范围大概是eleVation *2 + translateY * 2"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider_evelation" />
@@ -128,18 +127,35 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="100dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="100dp"
+                android:translationZ="25dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                android:translationZ="10dp"
+                app:cardElevation="25dp"
                 app:cardPreventCornerOverlap="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_title_evelation" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="50dp"
+                android:background="@android:color/holo_blue_light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_red_light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
