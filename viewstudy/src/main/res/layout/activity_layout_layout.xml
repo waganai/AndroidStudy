@@ -8,10 +8,10 @@
         android:id="@+id/btn_constraintlayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:onClick="startConstraintLayoutActivity"
         android:text="ConstraintLayout"
         android:textAllCaps="false"
-        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,12 +20,23 @@
         android:id="@+id/btn_cardview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="startCardViewActivity"
         android:text="CardView"
         android:textAllCaps="false"
-        android:onClick="startCardViewActivity"
-        android:layout_margin="10dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_constraintlayout"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_constraintlayout" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="startRecyclerViewActivity"
+        android:text="RecyclerViewActivity"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cardview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

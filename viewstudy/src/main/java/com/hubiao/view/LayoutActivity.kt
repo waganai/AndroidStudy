@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.hubiao.view.module.cardview.CardViewActivity
 import com.hubiao.view.module.constraintlayout.ConstraintLayoutActivity
+import com.hubiao.view.module.recyclerview.RecyclerViewActivity
 
 class LayoutActivity : AppCompatActivity() {
 
@@ -21,5 +22,9 @@ class LayoutActivity : AppCompatActivity() {
 
     fun startCardViewActivity(view: View) {
         startActivity(Intent(this@LayoutActivity, CardViewActivity::class.java))
+    }
+
+    fun startRecyclerViewActivity(view: View) {
+        startActivity(Intent(this@LayoutActivity, RecyclerViewActivity::class.java))
     }
 }

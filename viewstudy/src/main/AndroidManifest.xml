@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".LayoutActivity"
+            android:name="com.hubiao.view.LayoutActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
 
@@ -14,7 +14,12 @@
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
 
         <activity
-            android:name=".module.cardview.CardViewActivity"
+            android:name="com.hubiao.view.module.cardview.CardViewActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar" />
+
+        <activity
+            android:name="com.hubiao.view.module.recyclerview.RecyclerViewActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
 
