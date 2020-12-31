@@ -14,7 +14,7 @@ class SimpleRecyclerViewAdapter :
     private val mContext: Context
     private val mLayoutInflater: LayoutInflater
 
-    private var mDataList: List<() -> String>? = null
+    private var mDataList: List<String>? = null
 
     constructor(context: Context) : super() {
         mContext = context
@@ -22,7 +22,7 @@ class SimpleRecyclerViewAdapter :
         mLayoutInflater = LayoutInflater.from(mContext)
     }
 
-    fun setData(dataList: List<() -> String>) {
+    fun setData(dataList: List<String>) {
         mDataList = dataList
     }
 
