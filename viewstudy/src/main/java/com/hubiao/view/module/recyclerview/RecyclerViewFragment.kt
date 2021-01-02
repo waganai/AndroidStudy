@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.hubiao.view.R
 
 class RecyclerViewFragment : Fragment() {
 
     private var mRootView: View? = null
 
-    private var mSimpleRecyclerView: RecyclerView? = null
+    private var mDividerItemDecorationBtn: Button? = null
+    private var mSimpleItemDecorationBtn: Button? = null
+
+    private var mRecyclerViewFragmentListener: RecyclerViewFragmentListener? = null
 
     companion object {
         fun buildFragment(): RecyclerViewFragment {
@@ -31,6 +32,8 @@ class RecyclerViewFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         mRootView = view
 
         init()
@@ -43,37 +46,26 @@ class RecyclerViewFragment : Fragment() {
     }
 
     private fun initView() {
-        activity?.let {
-            mSimpleRecyclerView = mRootView?.findViewById(R.id.simple_recyclerView)
-
-            mSimpleRecyclerView?.layoutManager =
-                LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-
-            // DividerItemDecoration设置的分割线是透明的
-            // 顶部没有分割线，底部有
-            mSimpleRecyclerView?.addItemDecoration(
-                DividerItemDecoration(
-                    it,
-                    DividerItemDecoration.VERTICAL
-                )
-            )
-
-            val simpleRecyclerViewAdapter = SimpleRecyclerViewAdapter(it)
-
-            mSimpleRecyclerView?.adapter = simpleRecyclerViewAdapter
-
-            val dataList = listOf(
-                "AAA", "BBB", "CCC", "DDD", "EEE", "FFF", "GGG", "HHH", "III", "JJJ",
-                "KKK", "LLL", "MMM", "NNN", "OOO", "PPP", "QQQ", "RRR", "SSS", "TTT",
-                "UUU", "VVV", "WWW", "XXX", "YYY", "ZZZ"
-            )
-
-            simpleRecyclerViewAdapter.setData(dataList)
-            simpleRecyclerViewAdapter.notifyDataSetChanged()
-        }
+        mDividerItemDecorationBtn = mRootView?.findViewById(R.id.btn_divider_item_decoration)
+        mSimpleItemDecorationBtn = mRootView?.findViewById(R.id.btn_simple_Item_decoration)
     }
 
     private fun initListener() {
+        mDividerItemDecorationBtn?.setOnClickListener {
+            mRecyclerViewFragmentListener?.onShowDividerItemDecorationFragment()
+        }
+        mSimpleItemDecorationBtn?.setOnClickListener {
+            mRecyclerViewFragmentListener?.onShowSimpleItemDecorationFragment()
+        }
+    }
 
+    fun setRecyclerViewFragmentListener(listener: RecyclerViewFragmentListener) {
+        mRecyclerViewFragmentListener = listener
+    }
+
+    interface RecyclerViewFragmentListener {
+        fun onShowDividerItemDecorationFragment()
+
+        fun onShowSimpleItemDecorationFragment()
     }
 }
