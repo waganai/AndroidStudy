@@ -30,6 +30,10 @@ android {
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             }
+
+            res.srcDirs+='src/main/res-recyclerview'
+            res.srcDirs+='src/main/res-constraintlayout'
+            res.srcDirs+='src/main/res-cardview'
         }
     }
 

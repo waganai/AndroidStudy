@@ -1,12 +1,15 @@
 package com.hubiao.view.module.recyclerview
 
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import com.hubiao.view.R
 
 class RecyclerViewActivity : AppCompatActivity() {
 
-    private var mRecyclerViewFragment: RecyclerViewFragment? = null
+    private var mRecyclerViewFragment = RecyclerViewFragment.buildFragment()
+    private var mDividerItemDecorationRecyclerViewFragment: DividerItemDecorationRecyclerViewFragment? =
+        null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +19,21 @@ class RecyclerViewActivity : AppCompatActivity() {
         init()
     }
 
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        return when (keyCode) {
+            KeyEvent.KEYCODE_BACK -> if (supportFragmentManager.findFragmentByTag(
+                    RecyclerViewFragment::class.java.simpleName
+                ) == null
+            ) {
+                return showRecyclerViewFragment()
+
+            } else {
+                super.onKeyDown(keyCode, event)
+            }
+            else -> super.onKeyDown(keyCode, event)
+        }
+    }
+
     private fun init() {
         initView()
 
@@ -23,21 +41,48 @@ class RecyclerViewActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        mRecyclerViewFragment = RecyclerViewFragment.buildFragment()
-
-        mRecyclerViewFragment?.let {
-            val fragmentTransient = supportFragmentManager.beginTransaction()
-            fragmentTransient.replace(
-                R.id.fl_container,
-                it,
-                RecyclerViewFragment::class.java.simpleName
-            )
-            fragmentTransient.commit()
-        }
+        showRecyclerViewFragment()
     }
 
     private fun initListener() {
+        mRecyclerViewFragment?.setRecyclerViewFragmentListener(
+            object : RecyclerViewFragment.RecyclerViewFragmentListener {
+                override fun onShowDividerItemDecorationFragment() {
+                    showDividerItemDecorationFragment()
+                }
 
+                override fun onShowSimpleItemDecorationFragment() {
+                }
+
+            }
+        )
     }
 
+    private fun showRecyclerViewFragment(): Boolean {
+        val fragmentBeginTransaction = supportFragmentManager.beginTransaction()
+        fragmentBeginTransaction.replace(
+
+            R.id.fl_container,
+            mRecyclerViewFragment,
+            RecyclerViewFragment::class.java.simpleName
+        )
+        fragmentBeginTransaction.commit()
+
+        return true
+    }
+
+    private fun showDividerItemDecorationFragment() {
+        mDividerItemDecorationRecyclerViewFragment =
+            DividerItemDecorationRecyclerViewFragment.buildFragment()
+
+        mDividerItemDecorationRecyclerViewFragment?.let {
+            val fragmentTransaction = supportFragmentManager.beginTransaction()
+            fragmentTransaction.replace(
+                R.id.fl_container,
+                it,
+                DividerItemDecorationRecyclerViewFragment::class.java.simpleName
+            )
+            fragmentTransaction.commit()
+        }
+    }
 }
