@@ -98,3 +98,80 @@ Button myButton = findViewById(R.id.my_button);
 &emsp;&emsp;View tree很大程度上是按照顺序记录和绘制的，父View画在他们的孩子之前(也就是下层？？？)，同一级的View按照他们出现View tree中顺序绘制。如果你为一个View设置了一个background drawable，那么View会在调用它的onDraw()方法之前绘制它。子View的绘制顺序可以在ViewGroup中使用ViewGroup#setChildrenDrawingOrderEnabled(boolean)来覆盖，在View中使用setZ(float)(自定义 Z 值}来覆盖。  
 
 &emsp;&emsp;为了强制绘制View，可以调用invalidate()。
+## 八、Event Handling and Threading
+&emsp;&emsp;View的基本周期如下：  
+1. 一个事件到来并被分发到合适的View，View处理事件并通知给监听器
+2. 如果在处理事件的过程中，View的边界可能需要更改，View将调用requestLayout()
+3. 类似地，如果在处理事件的过程中View的外观可能需要更改，View将调用invalidate()。
+4. 如果requestLayout()或invalidate()被调用，Android framework将负责measure、layout和draw适当的树。  
+
+&emsp;&emsp;注意:整个View tree是单线程的。在任何View上调用任何方法时，你必须始终处于UI线程中。如果您正在其他线程上执行工作，并希望从该线程更新View的状态，则应该使用处Handler。
+
+## 九、Focus Handling
+&emsp;&emsp;android framework在响应用户输入的过程中处理常规焦点移动。这包括在View的被删除或隐藏，或者新的View可用时的焦点的改变。View通过isFocusable()方法表示它们是否愿意获取焦点。要更改View是否可以获取焦点，调用setFocusable(boolean)。当在触摸模式下(见下面的注释)，视图通过isFocusableInTouchMode()来表示他们是否仍然想要焦点，并可以通过setFocusableInTouchMode(boolean)来更改。  
+
+&emsp;&emsp;焦点移动是基于在给定方向上找到最近的邻居的算法。在极少数情况下，默认算法可能与开发人员的预期行为不匹配。在这些情况下，你可以通过在布局文件中使用这些XML属性来提供显式的覆盖:
+```xml
+ nextFocusDown
+ nextFocusLeft
+ nextFocusRight
+ nextFocusUp
+```  
+
+&emsp;&emsp;要让特定视图获得焦点，请调用requestFocus()。  
+ 
+## 十、Touch Mode
+&emsp;&emsp;当用户通过方向键(如方向键)导航用户界面时，有必要将焦点放在Button等可操作的项目上，这样用户就可以看到需要输入的内容。但是，如果设备具有触摸功能，并且用户通过触摸它开始与界面交互，就不再需要总是突出显示或聚焦特定的View。这导致了一种名为“触摸模式”的交互模式的产生。
+
+&emsp;&emsp;对于能够触摸的设备，一旦用户触摸屏幕，设备将进入触摸模式。从现在开始，只有isFocusableInTouchMode()为true的视图才可以聚焦，比如文本编辑小部件。其他可触摸的视图，比如按钮，在被触摸时不会聚焦;它们只会触发点击监听器。  
+
+&emsp;&emsp;任何时候用户点击方向键，如D-pad方向键，设备将退出触摸模式，并找到一个View获取焦点，这样用户就可以在不再次触摸屏幕的情况下恢复与用户界面的交互。  
+
+&emsp;&emsp;触摸模式的状态是跨活动维护的。调用isInTouchMode()查看设备当前是否处于触摸模式。  
+
+## 十一、Scrolling
+&emsp;&emsp;android framework为希望内部滚动内容的View提供了基本支持。这包括跟踪X和Y滚动偏移量以及绘制滚动条的机制。参阅scrollBy(int, int)， scrollTo(int, int)和awakenScrollBars()了解更多信息。  
+
+## 十二、Tags
+&emsp;&emsp;与id不同，tag不用于标识视图。tag本质上是可以与View相关联的额外信息。它们最常用来方便地在View中存储与View相关的数据，而不是将它们放在单独的结构中。  
+
+```xml
+<View ...
+    android:tag="@string/mytag_value" />
+<View ...>
+    <tag android:id="@+id/mytag"
+        android:value="@string/mytag_value" />
+</View>
+```  
+
+&emsp;&emsp;tag也可以使用代码中的setTag(java.lang.Object)或setTag(int, java.lang.Object)指定任意对象。  
+
+## 十三、Themes
+&emsp;&emsp;默认情况下，View是使用提供给它们的构造函数的Context对象的主题创建的;然而，不同的主题可以通过在布局XML中使用android:theme属性或通过从代码传递ContextThemeWrapper到构造函数来指定。  
+
+&emsp;&emsp;当android:theme属性在XML中使用时，指定的主题应用于inflation context的Theme(参见LayoutInflater)，并用于View本身以及任何子元素。  
+
+&emsp;&emsp;在下面的例子中，两个View都将使用Material dark color scheme创建;然而，因为只定义了属性的子集的覆盖主题被使用了，android:colorAccent的值定义在inflatio context的theme(例如Activity theme)将被保留。  
+
+```xml
+<LinearLayout
+    ...
+    android:theme="@android:theme/ThemeOverlay.Material.Dark">
+    <View ...>
+</LinearLayout> 
+```  
+
+## 十四、Properties
+&emsp;&emsp;View类公开了一个ALPHA属性，以及几个与平移相关的属性，如TRANSLATION_X和TRANSLATION_Y。这些属性既可以在属性形式中使用，也可以在命名类似的setter/getter方法中使用(例如ALPHA的setAlpha(float))。这些属性可用于在View中设置与这些呈现相关属性相关联的持久状态。属性和方法也可以与基于动画的动画一起使用，在动画部分有更多的描述。  
+
+## 十五、Animation
+&emsp;&emsp;从Android 3.0开始，让视图动画化的首选方式是使用android.animation package APIs。这些基于Animator的类会改变View对象的实际属性，比如alpha和translationX。这种行为与3.0之前的基于Animation的类形成了对比，后者只对View在显示上绘制的方式进行动画处理。特别是，ViewPropertyAnimator类使这些视图属性的动画化变得非常简单和高效。  
+
+&emsp;&emsp;另外，你也可以使用3.0之前的animation类来为View的渲染方式制作动画。你可以使用setAnimation(android.view.animation.Animation)或startAnimation(android.view.animation.Animation)将一个动画对象附加到一个View。动画可以随时间改变视图的缩放、旋转、平移和alpha值。如果动画被附加到一个有子节点的View上，动画将影响以该节点为根的整个子View tree结构。当一个动画开始时，android framework将负责重新绘制适当的View，直到动画完成。  
+
+## 十六、Security
+&emsp;&emsp;有时，应用程序必须能够验证在用户完全知情和同意的情况下执行的操作，例如授予权限请求、进行购买或点击广告。不幸的是，恶意的应用程序可能试图通过隐藏视图的预期目的，在不知情的情况下欺骗用户执行这些操作。作为补救措施，该框架提供了一个触摸过滤机制，可以用来提高视图的安全性，这些View提供了对敏感功能的访问。  
+
+&emsp;&emsp;要启用触摸过滤，调用setfiltertoucheswhenwards (boolean)或设置android: filtertoucheswhenwards布局属性为true。当启用时，当View所在的Window被另一个可见Window遮挡时，android framework将丢弃接收到的触摸。因此，当toast、Dialog或其他Window出现在View窗口上方时，View将不会接收触摸。  
+
+&emsp;&emsp;对于更细粒度的安全控制，考虑覆盖onFilterTouchEventForSecurity(android.view.MotionEvent)方法来实现你自己的安全策略。参见MotionEvent # FLAG_WINDOW_IS_OBSCURED。
