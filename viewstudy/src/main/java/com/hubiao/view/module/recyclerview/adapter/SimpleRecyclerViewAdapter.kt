@@ -1,4 +1,4 @@
-package com.hubiao.view.module.recyclerview
+package com.hubiao.view.module.recyclerview.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

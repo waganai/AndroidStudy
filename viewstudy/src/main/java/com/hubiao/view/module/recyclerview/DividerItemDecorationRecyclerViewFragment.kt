@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hubiao.view.R
+import com.hubiao.view.module.recyclerview.adapter.SimpleRecyclerViewAdapter
 
 class DividerItemDecorationRecyclerViewFragment : Fragment() {
 
@@ -69,7 +70,6 @@ class DividerItemDecorationRecyclerViewFragment : Fragment() {
             )
 
             simpleRecyclerViewAdapter.setData(dataList)
-            simpleRecyclerViewAdapter.notifyDataSetChanged()
         }
     }
 

@@ -8,8 +8,10 @@ import com.hubiao.view.R
 class RecyclerViewActivity : AppCompatActivity() {
 
     private var mRecyclerViewFragment = RecyclerViewFragment.buildFragment()
-    private var mDividerItemDecorationRecyclerViewFragment: DividerItemDecorationRecyclerViewFragment? =
-        null
+    private var mDividerItemDecorationRecyclerViewFragment:
+            DividerItemDecorationRecyclerViewFragment? = null
+    private var mSimpleItemDecorationRecyclerViewFragment:
+            SimpleItemDecorationRecyclerViewFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +54,8 @@ class RecyclerViewActivity : AppCompatActivity() {
                 }
 
                 override fun onShowSimpleItemDecorationFragment() {
+                    showSimpleItemDecorationFragment()
                 }
-
             }
         )
     }
@@ -72,8 +74,10 @@ class RecyclerViewActivity : AppCompatActivity() {
     }
 
     private fun showDividerItemDecorationFragment() {
-        mDividerItemDecorationRecyclerViewFragment =
-            DividerItemDecorationRecyclerViewFragment.buildFragment()
+        if (mDividerItemDecorationRecyclerViewFragment == null) {
+            mDividerItemDecorationRecyclerViewFragment =
+                DividerItemDecorationRecyclerViewFragment.buildFragment()
+        }
 
         mDividerItemDecorationRecyclerViewFragment?.let {
             val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -81,6 +85,23 @@ class RecyclerViewActivity : AppCompatActivity() {
                 R.id.fl_container,
                 it,
                 DividerItemDecorationRecyclerViewFragment::class.java.simpleName
+            )
+            fragmentTransaction.commit()
+        }
+    }
+
+    private fun showSimpleItemDecorationFragment() {
+        if (mSimpleItemDecorationRecyclerViewFragment == null) {
+            mSimpleItemDecorationRecyclerViewFragment =
+                SimpleItemDecorationRecyclerViewFragment.buildFragment()
+        }
+
+        mSimpleItemDecorationRecyclerViewFragment?.let {
+            val fragmentTransaction = supportFragmentManager.beginTransaction()
+            fragmentTransaction.replace(
+                R.id.fl_container,
+                it,
+                SimpleItemDecorationRecyclerViewFragment::class.java.simpleName
             )
             fragmentTransaction.commit()
         }
