@@ -27,6 +27,7 @@ class SimpleItemDecorationRecyclerViewFragment : Fragment() {
 
     private var mRecyclerView1: RecyclerView? = null
     private var mRecyclerView2: RecyclerView? = null
+    private var mRecyclerView3: RecyclerView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,6 +58,7 @@ class SimpleItemDecorationRecyclerViewFragment : Fragment() {
     private fun initView() {
         mRecyclerView1 = mRootView?.findViewById(R.id.recyclerview1_simple_item_decoration)
         mRecyclerView2 = mRootView?.findViewById(R.id.recyclerview2_simple_item_decoration)
+        mRecyclerView3 = mRootView?.findViewById(R.id.recyclerview3_simple_item_decoration)
 
         mRecyclerView1?.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
@@ -107,6 +109,56 @@ class SimpleItemDecorationRecyclerViewFragment : Fragment() {
 
             mRecyclerView2?.adapter = adapter2
         }
+
+        mRecyclerView3?.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+
+        mRecyclerView3?.addItemDecoration(
+            SimpleItemDecoration.buildItemDecoration()
+                .setDrawOver(true)
+                .setDrawOverColor(Color.YELLOW)
+        )
+
+        val listData3 = listOf(
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android",
+            "Android"
+        )
+
+        activity?.let {
+            val adapter3 = SimpleRecyclerViewAdapter(it)
+            adapter3.setData(listData3)
+
+            mRecyclerView3?.adapter = adapter3
+        }
+
     }
 
     private fun initListener() {

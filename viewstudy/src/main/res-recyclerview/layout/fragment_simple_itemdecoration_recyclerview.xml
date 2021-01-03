@@ -25,4 +25,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerview1_simple_item_decoration" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview3_simple_item_decoration"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        tools:listitem="@layout/item_simple_recyclerview_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview2_simple_item_decoration" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

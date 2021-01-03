@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.view.View
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.roundToInt
@@ -20,17 +21,23 @@ class SimpleItemDecoration : RecyclerView.ItemDecoration() {
         }
     }
 
-    private var mDividerColor: Int = Color.TRANSPARENT
-    private var mDividerDrawable: Drawable? = null
 
     private val mDividerBounds = Rect()
+    private val mDrawOverPaint = Paint()
+
+    private var mDividerDrawable: Drawable? = null
+    private var mDrawOverColor = Color.RED
+    private var mDividerColor: Int = Color.TRANSPARENT
 
     private val mDividerPaint = Paint()
+    private var mDrawOverBounds = Rect()
 
     private var mDividerSize: Int = 0
 
     private var mOrientation: Int = LinearLayoutManager.VERTICAL
+
     private var mDrawForLastItem = false
+    private var mDrawOver = false
 
     // Unit pixel
 
@@ -159,6 +166,28 @@ class SimpleItemDecoration : RecyclerView.ItemDecoration() {
 
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDrawOver(c, parent, state)
+
+        if (!mDrawOver) {
+            return
+        }
+
+        mDrawOverPaint.color = mDrawOverColor
+        mDrawOverPaint.strokeJoin = Paint.Join.ROUND
+        mDrawOverPaint.strokeCap = Paint.Cap.ROUND
+        mDrawOverPaint.style = Paint.Style.STROKE
+
+        val childCount = parent.childCount
+        for (i in 0 until childCount) {
+            val child = parent[i]
+            parent.getDecoratedBoundsWithMargins(child, mDrawOverBounds)
+
+            val centerX = (mDrawOverBounds.left.toFloat() + mDividerBounds.right.toFloat()) / 2
+            val centerY = (mDrawOverBounds.top.toFloat() + mDrawOverBounds.bottom.toFloat()) / 2
+            val radius: Float = mDrawOverBounds.width().toFloat()
+                .coerceAtMost(mDrawOverBounds.height().toFloat()) / 2
+
+            c.drawCircle(centerX, centerY, radius, mDrawOverPaint)
+        }
     }
 
     override fun getItemOffsets(
@@ -200,6 +229,18 @@ class SimpleItemDecoration : RecyclerView.ItemDecoration() {
 
     fun setDrawForLastItem(drawForLastItem: Boolean): SimpleItemDecoration {
         mDrawForLastItem = drawForLastItem
+
+        return this@SimpleItemDecoration
+    }
+
+    fun setDrawOverColor(color: Int): SimpleItemDecoration {
+        mDrawOverColor = color
+
+        return this@SimpleItemDecoration
+    }
+
+    fun setDrawOver(drawOver: Boolean): SimpleItemDecoration {
+        mDrawOver = drawOver
 
         return this@SimpleItemDecoration
     }
