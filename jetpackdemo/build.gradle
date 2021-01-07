@@ -13,7 +13,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -21,18 +21,21 @@ android {
         multiDexEnabled true
     }
 
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
     sourceSets {
         main {
             // 在独立运行或者作为Library调试时，使用不同的AndroidManifest.xml文件
             if (isIndependent.toBoolean()) {
-                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+                manifest.srcFile 'src/demo/AndroidManifest.xml'
+
+                java.srcDirs += ['src/demo/java']
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             }
-
-            res.srcDirs += 'src/main/res-recyclerview'
-            res.srcDirs += 'src/main/res-constraintlayout'
-            res.srcDirs += 'src/main/res-cardview'
         }
     }
 
