@@ -10,6 +10,7 @@ import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.jetpackdemeo.databinding.FragmentViewmodelLayoutBinding
+import com.example.jetpackdemeo.lifeobserver.SimpleActivityLifeObserver
 
 class ViewModelFragment : Fragment() {
 
@@ -23,6 +24,8 @@ class ViewModelFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        lifecycle.addObserver(SimpleActivityLifeObserver())
+
         viewBinding = FragmentViewmodelLayoutBinding.inflate(
             inflater,
             container,
