@@ -29,8 +29,8 @@ class JetPackActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(
                 mViewBinding.flContainer.id,
-                UserProfileFragment(),
-                UserProfileFragment::class.java.simpleName
+                ViewModelFragment(),
+                ViewModelFragment::class.java.simpleName
             ).commit()
     }
 
