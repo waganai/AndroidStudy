@@ -1,4 +1,4 @@
-package com.example.jetpackdemeo
+package com.example.jetpackdemeo.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

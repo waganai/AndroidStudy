@@ -13,11 +13,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.jetpackdemeo.databinding.FragmentViewmodelLayoutBinding
 import com.example.jetpackdemeo.lifeobserver.SimpleActivityLifeObserver
+import com.example.jetpackdemeo.viewmodel.CounterModel
+import com.example.jetpackdemeo.viewmodel.UserModel
 
 class ViewModelFragment : Fragment() {
 
     lateinit var viewBinding: FragmentViewmodelLayoutBinding
     private lateinit var counterModel: CounterModel
+    private lateinit var userModel: UserModel
 
     private lateinit var sp: SharedPreferences
 
@@ -48,6 +51,12 @@ class ViewModelFragment : Fragment() {
         )
             .get(CounterModel::class.java)
 
+        userModel = ViewModelProvider(
+            requireActivity(),
+            UserModel.UserModelFactory("小", "明")
+        )
+            .get(UserModel::class.java)
+
         return viewBinding.root
     }
 
@@ -61,7 +70,7 @@ class ViewModelFragment : Fragment() {
         super.onPause()
 
         sp.edit {
-            putInt("REVERSED_COUNTER", counterModel.counter.value?:0)
+            putInt("REVERSED_COUNTER", counterModel.counter.value ?: 0)
         }
     }
 
@@ -78,6 +87,11 @@ class ViewModelFragment : Fragment() {
         counterModel.counter.observe(requireActivity(), Observer {
             viewBinding.tvValue.text = it.toString()
         })
+
+        userModel.userName.observe(requireActivity(), {
+            viewBinding.tvName.text = it
+        })
+
 
         viewBinding.btnPlusOne.setOnClickListener {
             counterModel.plusOne()
