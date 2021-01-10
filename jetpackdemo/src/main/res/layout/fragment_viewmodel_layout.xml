@@ -14,9 +14,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_add"
+        android:id="@+id/btn_plus_one"
         android:layout_margin="10dp"
-        android:text="Add"
+        android:text="Plus One"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,14 +26,14 @@
 
 
     <Button
-        android:id="@+id/btn_reduce"
+        android:id="@+id/btn_reduce_one"
         android:layout_margin="10dp"
-        android:text="Reduce"
+        android:text="Reduce One"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add"
+        app:layout_constraintTop_toBottomOf="@+id/btn_plus_one"
         android:layout_height="wrap_content"/>
 
     <Button
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_reduce"
+        app:layout_constraintTop_toBottomOf="@+id/btn_reduce_one"
         android:layout_height="wrap_content"/>
 
     <Button

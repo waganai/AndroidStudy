@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.jetpackdemeo.databinding.FragmentViewmodelLayoutBinding
 import com.example.jetpackdemeo.lifeobserver.SimpleActivityLifeObserver
@@ -16,7 +17,7 @@ import com.example.jetpackdemeo.lifeobserver.SimpleActivityLifeObserver
 class ViewModelFragment : Fragment() {
 
     lateinit var viewBinding: FragmentViewmodelLayoutBinding
-    private lateinit var valueModel: ValueModel
+    private lateinit var counterModel: CounterModel
 
     private lateinit var sp: SharedPreferences
 
@@ -35,17 +36,17 @@ class ViewModelFragment : Fragment() {
 
         sp = requireActivity().getPreferences(Context.MODE_PRIVATE)
 
-        valueModel = ViewModelProvider(
+        counterModel = ViewModelProvider(
             requireActivity(),
-            ValueModel
-                .ValueModelFactory(
+            CounterModel
+                .CounterModelFactory(
                     sp.getInt(
-                        "REVERSED_VALUE",
+                        "REVERSED_COUNTER",
                         0
                     )
                 )
         )
-            .get(ValueModel::class.java)
+            .get(CounterModel::class.java)
 
         return viewBinding.root
     }
@@ -60,7 +61,7 @@ class ViewModelFragment : Fragment() {
         super.onPause()
 
         sp.edit {
-            putInt("REVERSED_VALUE", valueModel.value)
+            putInt("REVERSED_COUNTER", counterModel.counter.value?:0)
         }
     }
 
@@ -71,33 +72,32 @@ class ViewModelFragment : Fragment() {
     }
 
     private fun initView() {
-        viewBinding.tvValue.text = valueModel.value.toString()
     }
 
     private fun initListener() {
-        viewBinding.btnAdd.setOnClickListener {
-            valueModel.value++
+        counterModel.counter.observe(requireActivity(), Observer {
+            viewBinding.tvValue.text = it.toString()
+        })
 
-            viewBinding.tvValue.text = valueModel.value.toString()
+        viewBinding.btnPlusOne.setOnClickListener {
+            counterModel.plusOne()
         }
 
-        viewBinding.btnReduce.setOnClickListener {
-            valueModel.value--
-
-            viewBinding.tvValue.text = valueModel.value.toString()
+        viewBinding.btnReduceOne.setOnClickListener {
+            counterModel.reduceOne()
         }
 
         viewBinding.btnClear.setOnClickListener {
-            valueModel.value = 0
-
-            viewBinding.tvValue.text = valueModel.value.toString()
+            counterModel.clear()
         }
 
         viewBinding.btnCurrentState.setOnClickListener {
             Toast
-                .makeText(requireContext(),
+                .makeText(
+                    requireContext(),
                     "${lifecycle.currentState}",
-                    Toast.LENGTH_LONG)
+                    Toast.LENGTH_LONG
+                )
                 .show()
         }
     }
