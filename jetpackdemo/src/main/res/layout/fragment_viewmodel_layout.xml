@@ -36,4 +36,26 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_add"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_margin="10dp"
+        android:text="Clear"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_reduce"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_current_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        android:text="Current State"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
