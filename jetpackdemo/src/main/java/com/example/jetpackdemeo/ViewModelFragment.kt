@@ -53,7 +53,7 @@ class ViewModelFragment : Fragment() {
 
         userModel = ViewModelProvider(
             requireActivity(),
-            UserModel.UserModelFactory("小", "明")
+            UserModel.UserModelFactory("小", "明", 0)
         )
             .get(UserModel::class.java)
 
@@ -92,6 +92,10 @@ class ViewModelFragment : Fragment() {
             viewBinding.tvName.text = it
         })
 
+        userModel.user.observe(requireActivity(), Observer {
+            viewBinding.tvName.text = it.firstName + it.lastName
+        })
+
 
         viewBinding.btnPlusOne.setOnClickListener {
             counterModel.plusOne()
@@ -103,6 +107,10 @@ class ViewModelFragment : Fragment() {
 
         viewBinding.btnClear.setOnClickListener {
             counterModel.clear()
+        }
+
+        viewBinding.btnChangeUser.setOnClickListener {
+            userModel.getUser((0..1000).random().toString())
         }
 
         viewBinding.btnCurrentState.setOnClickListener {
