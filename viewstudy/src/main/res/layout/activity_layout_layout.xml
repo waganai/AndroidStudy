@@ -29,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_constraintlayout" />
 
     <Button
+        android:id="@+id/btn_recyclerview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -38,5 +39,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_cardview" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="startToastActivity"
+        android:text="ToastActivity"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_recyclerview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

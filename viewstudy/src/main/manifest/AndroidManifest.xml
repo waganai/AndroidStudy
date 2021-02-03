@@ -30,6 +30,11 @@
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar"/>
 
+        <activity
+            android:name="com.hubiao.view.module.toast.ToastTestActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar" />
+
         <service
             android:name="com.didichuxing.doraemonkit.kit.colorpick.ScreenRecorderService"
             android:enabled="true"

@@ -23,6 +23,11 @@
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
 
+        <activity
+            android:name="com.hubiao.view.module.toast.ToastTestActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar" />
+
     </application>
 
 </manifest>
