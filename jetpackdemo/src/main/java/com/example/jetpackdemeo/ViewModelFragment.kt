@@ -1,6 +1,7 @@
 package com.example.jetpackdemeo
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.jetpackdemeo.databinding.FragmentViewmodelLayoutBinding
+import com.example.jetpackdemeo.fragment.FragmentTestActivity1
+import com.example.jetpackdemeo.fragment.FragmentTestActivity2
 import com.example.jetpackdemeo.lifeobserver.SimpleActivityLifeObserver
 import com.example.jetpackdemeo.viewmodel.CounterModel
 import com.example.jetpackdemeo.viewmodel.UserModel
@@ -97,30 +100,40 @@ class ViewModelFragment : Fragment() {
         })
 
 
-        viewBinding.btnPlusOne.setOnClickListener {
-            counterModel.plusOne()
-        }
+        viewBinding.apply {
+            btnPlusOne.setOnClickListener {
+                counterModel.plusOne()
+            }
 
-        viewBinding.btnReduceOne.setOnClickListener {
-            counterModel.reduceOne()
-        }
+            btnReduceOne.setOnClickListener {
+                counterModel.reduceOne()
+            }
 
-        viewBinding.btnClear.setOnClickListener {
-            counterModel.clear()
-        }
+            btnClear.setOnClickListener {
+                counterModel.clear()
+            }
 
-        viewBinding.btnChangeUser.setOnClickListener {
-            userModel.getUser((0..1000).random().toString())
-        }
+            btnChangeUser.setOnClickListener {
+                userModel.getUser((0..1000).random().toString())
+            }
 
-        viewBinding.btnCurrentState.setOnClickListener {
-            Toast
-                .makeText(
-                    requireContext(),
-                    "${lifecycle.currentState}",
-                    Toast.LENGTH_LONG
-                )
-                .show()
+            btnCurrentState.setOnClickListener {
+                Toast
+                    .makeText(
+                        requireContext(),
+                        "${lifecycle.currentState}",
+                        Toast.LENGTH_LONG
+                    )
+                    .show()
+            }
+
+            btnFragmentActivity1.setOnClickListener {
+                activity?.startActivity(Intent(context, FragmentTestActivity1::class.java))
+            }
+
+            btnFragmentActivity2.setOnClickListener {
+                activity?.startActivity(Intent(context, FragmentTestActivity2::class.java))
+            }
         }
     }
 }
