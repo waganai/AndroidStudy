@@ -3,6 +3,7 @@ package com.example.jetpackdemeo
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.jetpackdemeo.activity.LifeCycleTestActivity1
 import com.example.jetpackdemeo.databinding.ActivityJetpackDemoLayoutBinding
 
 class DemoActivity : AppCompatActivity() {
@@ -31,8 +32,14 @@ class DemoActivity : AppCompatActivity() {
     }
 
     private fun initListener() {
-        binding.btnActivityJetpackDemo.setOnClickListener {
-            startActivity(Intent(this, JetPackActivity::class.java))
+        binding.apply {
+            btnStartActivity.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, LifeCycleTestActivity1::class.java))
+            }
+
+            btnActivityJetpackDemo.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, JetPackActivity::class.java))
+            }
         }
     }
 }

@@ -34,6 +34,14 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".activity.LifeCycleTestActivity1"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.LifeCycleTestActivity2"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

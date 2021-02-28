@@ -7,14 +7,25 @@
             android:name=".JetPackActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".fragment.FragmentTestActivity1"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".fragment.FragmentTestActivity2"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".activity.LifeCycleTestActivity1"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.LifeCycleTestActivity2"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
