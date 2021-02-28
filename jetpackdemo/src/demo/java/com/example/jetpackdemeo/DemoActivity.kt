@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.activity.LifeCycleTestActivity1
 import com.example.jetpackdemeo.databinding.ActivityJetpackDemoLayoutBinding
+import com.example.jetpackdemeo.fragment.FragmentTestActivity
 
 class DemoActivity : AppCompatActivity() {
 
@@ -35,6 +36,10 @@ class DemoActivity : AppCompatActivity() {
         binding.apply {
             btnStartActivity.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, LifeCycleTestActivity1::class.java))
+            }
+
+            btnStartFragment.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, FragmentTestActivity::class.java))
             }
 
             btnActivityJetpackDemo.setOnClickListener {

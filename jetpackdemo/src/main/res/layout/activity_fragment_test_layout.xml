@@ -6,51 +6,42 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_title_jetpack_demo"
+        <Button
+            android:id="@+id/btn_fragment_fragmentadapter_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="JetPack"
+            android:text=",FragmentAdapter"
             android:textAllCaps="false"
-            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_start_activity"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="Start Activity"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_jetpack_demo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btn_start_fragment"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="Start Fragment"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btn_activity_jetpack_demo"
+            android:id="@+id/btn_fragment_fragmentstateadapter_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="JetPackActivity"
+            android:text="FragmentStateAdapter"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_fragment" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_fragment_fragmentadapter_activity" />
+
+
+        <Button
+            android:id="@+id/btn_fragment_remove_add_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Fragment Add Remove"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_fragment_fragmentstateadapter_activity" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

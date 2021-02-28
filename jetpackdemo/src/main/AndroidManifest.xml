@@ -9,22 +9,34 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".fragment.FragmentTestActivity1"
+            android:name=".activity.LifeCycleTestActivity1"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.LifeCycleTestActivity2"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".fragment.FragmentTestActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".fragment.fragmentadapter.FragmentAdapterTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".fragment.FragmentTestActivity2"
+            android:name=".fragment.fragmentstateadapter.FragmentStateAdapterTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.LifeCycleTestActivity1"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".activity.LifeCycleTestActivity2"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".fragment.FragmentAddRemoveTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
 
     </application>
 

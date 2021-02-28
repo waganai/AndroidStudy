@@ -1,4 +1,4 @@
-package com.example.jetpackdemeo.fragment
+package com.example.jetpackdemeo.fragment.fragmentstateadapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

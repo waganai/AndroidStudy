@@ -36,6 +36,12 @@ class LogFragment(arg1: String) : Fragment() {
         Log.e(mLogFragmentTag, "onCreate()")
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+
+        Log.e(mLogFragmentTag, "onHiddenChanged($hidden)")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

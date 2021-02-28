@@ -1,19 +1,20 @@
-package com.example.jetpackdemeo.fragment
+package com.example.jetpackdemeo.fragment.fragmentstateadapter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.jetpackdemeo.databinding.ActivityFragmentTest1LayoutBinding
+import com.example.jetpackdemeo.databinding.ActivityFragmentViewpagerTestLayoutBinding
+import com.example.jetpackdemeo.fragment.LogFragment
 
-class FragmentTestActivity2 : AppCompatActivity() {
+class FragmentStateAdapterTestActivity : AppCompatActivity() {
 
-    private var viewBinding: ActivityFragmentTest1LayoutBinding? = null
+    private var viewBinding: ActivityFragmentViewpagerTestLayoutBinding? = null
     private val mFragments: MutableList<Fragment> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewBinding = ActivityFragmentTest1LayoutBinding.inflate(layoutInflater)
+        viewBinding = ActivityFragmentViewpagerTestLayoutBinding.inflate(layoutInflater)
 
         setContentView(viewBinding?.root)
 
