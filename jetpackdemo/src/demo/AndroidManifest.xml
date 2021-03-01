@@ -66,6 +66,11 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
 
+        <activity
+            android:name=".view.ViewUiTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
         <service android:name=".context.ContextTestService" />
 
     </application>

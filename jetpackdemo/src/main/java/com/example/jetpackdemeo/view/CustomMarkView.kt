@@ -79,7 +79,7 @@ class CustomMarkView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) 
 
         if (width == 0 && height == 0) {
             val rect = Rect()
-            mTextPaint.getTextBounds("自定义View1", 0, "自定义View1".length, rect)
+//            mTextPaint.getTextBounds("自定义View1", 0, "自定义View1".length, rect)
             height = rect.height()
         }
 
@@ -89,7 +89,7 @@ class CustomMarkView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) 
 
         setMeasuredDimension(width, height)
 
-        Log.e(TAG, "onMeasure(width = $width, height = $height)")
+//        Log.e(TAG, "onMeasure(width = $width, height = $height)")
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {

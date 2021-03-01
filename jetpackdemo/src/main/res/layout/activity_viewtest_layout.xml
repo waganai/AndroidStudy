@@ -2,45 +2,129 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <com.example.jetpackdemeo.view.CustomMarkView
         android:id="@+id/mv_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:text="Java"
-        app:textSize="12"
         android:layout_margin="10dp"
-        app:textColor="@android:color/holo_green_light"
         app:backgroundColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="Java"
+        app:textColor="@android:color/holo_green_light"
+        app:textSize="12" />
 
     <com.example.jetpackdemeo.view.CustomMarkView
         android:id="@+id/mv_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:text="Kotlin"
-        app:textSize="16"
         android:layout_margin="10dp"
-        app:textColor="@android:color/holo_red_light"
         app:backgroundColor="@android:color/holo_blue_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mv_1" />
+        app:layout_constraintTop_toBottomOf="@+id/mv_1"
+        app:text="Kotlin"
+        app:textColor="@android:color/holo_red_light"
+        app:textSize="16" />
 
     <com.example.jetpackdemeo.view.CustomMarkView
         android:id="@+id/mv_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:text="Android"
-        app:textSize="24"
         android:layout_margin="10dp"
-        app:textColor="@android:color/white"
         app:backgroundColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mv_2" />
+        app:layout_constraintTop_toBottomOf="@+id/mv_2"
+        app:text="Android"
+        app:textColor="@android:color/white"
+        app:textSize="24" />
+
+    <View
+        android:id="@+id/v_divider1"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mv_3" />
+
+    <com.example.jetpackdemeo.view.MarkLayout
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:background="@android:color/holo_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_divider1">
+
+        <com.example.jetpackdemeo.view.CustomMarkView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@color/purple_700"
+            app:text="学习学习，我爱学习，学习爱我"
+            app:textColor="@color/black"
+            app:textSize="16" />
+
+        <com.example.jetpackdemeo.view.CustomMarkView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@android:color/holo_orange_light"
+            app:text="Word is weak, show me the code"
+            app:textColor="@android:color/holo_red_light"
+            app:textSize="18" />
+
+        <com.example.jetpackdemeo.view.CustomMarkView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@android:color/black"
+            app:text="有我无敌！！!"
+            app:textColor="@android:color/white"
+            app:textSize="36" />
+
+        <com.example.jetpackdemeo.view.CustomMarkView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@android:color/holo_green_light"
+            app:text="C"
+            app:textColor="@android:color/holo_orange_light"
+            app:textSize="18" />
+
+        <com.example.jetpackdemeo.view.CustomMarkView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@android:color/holo_green_light"
+            app:text="C++"
+            app:textColor="@android:color/holo_orange_light"
+            app:textSize="18" />
+
+        <com.example.jetpackdemeo.view.CustomMarkView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@android:color/holo_green_light"
+            app:text="Java"
+            app:textColor="@android:color/holo_orange_light"
+            app:textSize="18" />
+
+        <com.example.jetpackdemeo.view.CustomMarkView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@android:color/holo_green_light"
+            app:text="Kotlin"
+            app:textColor="@android:color/holo_orange_light"
+            app:textSize="18" />
+
+        <com.example.jetpackdemeo.view.CustomMarkView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundColor="@android:color/holo_green_light"
+            app:text="Android"
+            app:textColor="@android:color/holo_orange_light"
+            app:textSize="18" />
+
+    </com.example.jetpackdemeo.view.MarkLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
