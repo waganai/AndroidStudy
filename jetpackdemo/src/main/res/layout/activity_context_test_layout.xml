@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_activity_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity start Activity"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_application_activity1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Application start Activity1"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_activity_activity" />
+
+        <Button
+            android:id="@+id/btn_application_activity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Application start Activity2"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_application_activity1" />
+
+        <Button
+            android:id="@+id/btn_service_activity1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service start Activity1"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_application_activity2" />
+
+        <Button
+            android:id="@+id/btn_service_activity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service start Activity2"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_service_activity1" />
+
+        <Button
+            android:id="@+id/btn_activity_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity show Dialog"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_service_activity2" />
+
+        <Button
+            android:id="@+id/btn_application_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Application show Dialog"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_activity_dialog" />
+
+        <Button
+            android:id="@+id/btn_service_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service start Dialog"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_application_dialog" />
+
+        <Button
+            android:id="@+id/btn_activity_toast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity show Toast"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_service_dialog" />
+
+        <Button
+            android:id="@+id/btn_application_toast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Application show Toast"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_activity_toast" />
+
+        <Button
+            android:id="@+id/btn_service_toast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service show Toast"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_application_toast" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

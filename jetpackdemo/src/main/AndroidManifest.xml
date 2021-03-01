@@ -9,6 +9,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".ShowActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".activity.LifeCycleTestActivity1"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -37,6 +42,13 @@
             android:name=".fragment.FragmentAddRemoveTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".context.ContextTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".context.ContextTestService" />
 
     </application>
 

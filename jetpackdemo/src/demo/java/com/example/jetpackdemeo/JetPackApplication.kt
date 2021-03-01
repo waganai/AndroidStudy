@@ -1,11 +1,55 @@
 package com.example.jetpackdemeo
 
 import android.app.Application
+import android.content.DialogInterface
+import android.content.Intent
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import java.lang.Exception
 
 class JetPackApplication : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
+    companion object {
+        var instance: JetPackApplication? = null
     }
 
+    override fun onCreate() {
+        super.onCreate()
+
+        if (instance == null) {
+            instance = this
+        }
+    }
+
+    fun startActivityFunction1() {
+        try {
+            startActivity(Intent(this@JetPackApplication, ShowActivity::class.java))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun startActivityFunction2() {
+        startActivity(
+            Intent(this@JetPackApplication, ShowActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        )
+    }
+
+    fun showDialogFunction() {
+        AlertDialog.Builder(this@JetPackApplication)
+            .setTitle("Application")
+            .setMessage("Application Show Dialog")
+            .setCancelable(true)
+            .setPositiveButton("确认") { dialogInterface: DialogInterface, i: Int ->
+            }
+            .setNegativeButton("取消") { dialogInterface: DialogInterface, i: Int ->
+            }
+            .create()
+            .show()
+    }
+
+    fun showToastFunction() {
+        Toast.makeText(this@JetPackApplication, "Application", Toast.LENGTH_SHORT).show()
+    }
 }
