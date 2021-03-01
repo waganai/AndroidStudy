@@ -53,6 +53,17 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_start_fragment" />
 
         <Button
+            android:id="@+id/btn_start_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Start View"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_fragment" />
+
+        <Button
             android:id="@+id/btn_activity_jetpack_demo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +72,7 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_context" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
