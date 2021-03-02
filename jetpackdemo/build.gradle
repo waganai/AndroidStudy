@@ -60,5 +60,6 @@ dependencies {
     if (isIndependent.toBoolean()) {
         debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
         releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
+        implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.10"
     }
 }
