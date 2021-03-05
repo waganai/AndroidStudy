@@ -1,6 +1,7 @@
 package com.example.jetpackdemeo
 
 import android.app.Application
+import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.widget.Toast
@@ -47,6 +48,12 @@ class JetPackApplication : Application() {
             }
             .create()
             .show()
+    }
+
+    fun showDialogFunction2() {
+        val dialog = Dialog(this@JetPackApplication)
+        dialog.setTitle("Application Dialog")
+        dialog.show()
     }
 
     fun showToastFunction() {

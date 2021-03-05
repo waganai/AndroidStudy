@@ -87,6 +87,10 @@ class ContextTestActivity : AppCompatActivity() {
                 JetPackApplication.instance?.showDialogFunction()
             }
 
+            btnApplicationDialog2.setOnClickListener {
+                JetPackApplication.instance?.showDialogFunction2()
+            }
+
             btnServiceDialog.setOnClickListener {
                 contextServiceBinder?.showDialogFunction()
             }
