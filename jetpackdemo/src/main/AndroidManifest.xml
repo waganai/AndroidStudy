@@ -62,6 +62,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".toast.ToastTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
         <service android:name=".context.ContextTestService" />
 
     </application>
