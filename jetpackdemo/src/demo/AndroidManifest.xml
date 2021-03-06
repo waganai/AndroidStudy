@@ -79,6 +79,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".multithreading.MultithreadingTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
         <service android:name=".context.ContextTestService" />
 
     </application>
