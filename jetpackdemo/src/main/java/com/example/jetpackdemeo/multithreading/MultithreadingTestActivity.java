@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.jetpackdemeo.databinding.ActivityMultithreadingTestLayoutBinding;
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 public class MultithreadingTestActivity extends AppCompatActivity {
 
     private static final String TAG = MultithreadingTestActivity.class.getSimpleName();
@@ -20,6 +24,14 @@ public class MultithreadingTestActivity extends AppCompatActivity {
 
     private SynchronizedTestClass1 sync1 = new SynchronizedTestClass1("sync1");
     private SynchronizedTestClass1 sync2 = new SynchronizedTestClass1("sync2");
+
+    private ThreadPoolExecutor threadPool = new ThreadPoolExecutor(2,
+            2,
+            0,
+            TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(5),
+            new ThreadPoolExecutor.CallerRunsPolicy(){
+            });
 
     private Handler mHandler = new Handler();
     private boolean mRunning = false;
@@ -246,7 +258,15 @@ public class MultithreadingTestActivity extends AppCompatActivity {
         });
 
         viewBindings.btnThreadpool.setOnClickListener(v -> {
-
+            for (int i = 0; i < 100; i++) {
+                int finalI = i;
+                threadPool.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e(TAG, " i =  " + finalI + ", thread = " + Thread.currentThread().getName());
+                    }
+                });
+            }
         });
     }
 }
