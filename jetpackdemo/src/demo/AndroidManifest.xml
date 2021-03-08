@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jetpackdemeo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".JetPackApplication"
         android:allowBackup="true"
@@ -82,6 +84,16 @@
         <activity android:name=".multithreading.MultithreadingTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".thirdframework.ThirdFrameworkTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".thirdframework.GlideTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
 
         <service android:name=".context.ContextTestService" />
 

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jetpackdemeo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
         <activity
             android:name=".JetPackActivity"
@@ -58,17 +60,30 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".handler.HandlerTestActivity"
+        <activity
+            android:name=".handler.HandlerTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".toast.ToastTestActivity"
+        <activity
+            android:name=".toast.ToastTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".multithreading.MultithreadingTestActivity"
+        <activity
+            android:name=".multithreading.MultithreadingTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".thirdframework.ThirdFrameworkTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".thirdframework.GlideTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
 
         <service android:name=".context.ContextTestService" />
 

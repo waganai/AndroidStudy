@@ -9,8 +9,8 @@ import com.example.jetpackdemeo.databinding.ActivityJetpackDemoLayoutBinding
 import com.example.jetpackdemeo.fragment.FragmentTestActivity
 import com.example.jetpackdemeo.handler.HandlerTestActivity
 import com.example.jetpackdemeo.multithreading.MultithreadingTestActivity
+import com.example.jetpackdemeo.thirdframework.ThirdFrameworkTestActivity
 import com.example.jetpackdemeo.toast.ToastTestActivity
-import com.example.jetpackdemeo.view.ViewTestActivity
 import com.example.jetpackdemeo.view.ViewUiTestActivity
 
 class DemoActivity : AppCompatActivity() {
@@ -66,6 +66,10 @@ class DemoActivity : AppCompatActivity() {
 
             btnStartThread.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, MultithreadingTestActivity::class.java))
+            }
+
+            btnStartThirdframework.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, ThirdFrameworkTestActivity::class.java))
             }
 
             btnActivityJetpackDemo.setOnClickListener {
