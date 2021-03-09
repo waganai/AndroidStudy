@@ -31,13 +31,15 @@
             android:name=".JetPackActivity"
             android:launchMode="singleTop" />
 
-        <activity android:name=".activity.LifeCycleTestActivity1"
+        <activity
+            android:name=".activity.LifeCycleTestActivity1"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.LifeCycleTestActivity2"
+        <activity
+            android:name=".activity.LifeCycleTestActivity2"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".fragment.FragmentTestActivity"
@@ -64,26 +66,30 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".view.ViewTestActivity"
+        <activity
+            android:name=".view.ViewTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".view.ViewUiTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".handler.HandlerTestActivity"
+        <activity
+            android:name=".handler.HandlerTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".toast.ToastTestActivity"
+        <activity
+            android:name=".toast.ToastTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".multithreading.MultithreadingTestActivity"
+        <activity
+            android:name=".multithreading.MultithreadingTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".thirdframework.ThirdFrameworkTestActivity"
@@ -91,7 +97,12 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".thirdframework.GlideTestActivity"
+            android:name=".thirdframework.glide.GlideTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".thirdframework.okhttp.OkHttpTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 

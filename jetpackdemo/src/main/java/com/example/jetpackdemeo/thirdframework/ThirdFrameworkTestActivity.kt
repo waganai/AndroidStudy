@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.databinding.ActivityThirdframeworkLayoutBinding
+import com.example.jetpackdemeo.thirdframework.glide.GlideTestActivity
+import com.example.jetpackdemeo.thirdframework.okhttp.OkHttpTestActivity
 
 class ThirdFrameworkTestActivity : AppCompatActivity() {
 
@@ -26,6 +28,15 @@ class ThirdFrameworkTestActivity : AppCompatActivity() {
                     Intent(
                         this@ThirdFrameworkTestActivity,
                         GlideTestActivity::class.java
+                    )
+                )
+            }
+
+            btnOkhttp.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@ThirdFrameworkTestActivity,
+                        OkHttpTestActivity::class.java
                     )
                 )
             }
