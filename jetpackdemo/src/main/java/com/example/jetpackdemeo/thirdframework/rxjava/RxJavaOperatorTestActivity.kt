@@ -30,7 +30,14 @@ class RxJavaOperatorTestActivity : AppCompatActivity() {
                 )
             }
 
-            btnTransform.setOnClickListener { }
+            btnTransform.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@RxJavaOperatorTestActivity,
+                        RxJavaTransformOperatorActivity::class.java
+                    )
+                )
+            }
 
             btnCompanion.setOnClickListener { }
 

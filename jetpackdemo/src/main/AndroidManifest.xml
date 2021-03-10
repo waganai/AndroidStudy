@@ -105,6 +105,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".thirdframework.rxjava.RxJavaTransformOperatorActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
         <service android:name=".context.ContextTestService" />
 
     </application>
