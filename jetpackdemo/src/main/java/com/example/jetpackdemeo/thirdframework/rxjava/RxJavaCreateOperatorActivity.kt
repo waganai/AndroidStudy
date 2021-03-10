@@ -3,6 +3,7 @@ package com.example.jetpackdemeo.thirdframework.rxjava
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.example.jetpackdemeo.databinding.ActivityRxjavaCreateOperatorLayoutBinding
 import io.reactivex.Observable
 import io.reactivex.Observer
@@ -144,7 +145,7 @@ class RxJavaCreateOperatorActivity : AppCompatActivity() {
 
     private fun fromArray() {
         Observable.fromArray(
-            arrayOf(
+            *arrayOf(
                 1,
                 2,
                 3,
@@ -166,12 +167,12 @@ class RxJavaCreateOperatorActivity : AppCompatActivity() {
                 19,
                 20
             )
-        ).subscribe(object : Observer<Array<Int>> {
+        ).subscribe(object : Observer<Int> {
             override fun onSubscribe(d: Disposable) {
                 Log.e(TAG, "fromArray() onSubscribe($d)")
             }
 
-            override fun onNext(a: Array<Int>) {
+            override fun onNext(a: Int) {
                 Log.e(TAG, "fromArray() onNext($a)")
             }
 
