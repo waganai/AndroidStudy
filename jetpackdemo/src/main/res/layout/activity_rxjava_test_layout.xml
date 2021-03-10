@@ -9,38 +9,38 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btn_glide"
+            android:id="@+id/btn_rxjava_separation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Glide"
+            android:text="RxJava  分离式调用"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_okhttp"
+            android:id="@+id/btn_rxjava_chain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="OkHttp"
+            android:text="RxJava  链式调用"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_glide" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_rxjava_separation" />
 
         <Button
-            android:id="@+id/btn_rxjava"
+            android:id="@+id/btn_rxjava_dispose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="RxJava"
+            android:text="RxJava  Dispose"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_okhttp" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_rxjava_chain" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

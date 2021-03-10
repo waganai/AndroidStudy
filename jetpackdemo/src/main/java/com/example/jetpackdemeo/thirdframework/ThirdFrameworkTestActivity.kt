@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.databinding.ActivityThirdframeworkLayoutBinding
 import com.example.jetpackdemeo.thirdframework.glide.GlideTestActivity
 import com.example.jetpackdemeo.thirdframework.okhttp.OkHttpTestActivity
+import com.example.jetpackdemeo.thirdframework.rxjava.RxJavaTestActivity
 
 class ThirdFrameworkTestActivity : AppCompatActivity() {
 
@@ -37,6 +38,15 @@ class ThirdFrameworkTestActivity : AppCompatActivity() {
                     Intent(
                         this@ThirdFrameworkTestActivity,
                         OkHttpTestActivity::class.java
+                    )
+                )
+            }
+
+            btnRxjava.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@ThirdFrameworkTestActivity,
+                        RxJavaTestActivity::class.java
                     )
                 )
             }

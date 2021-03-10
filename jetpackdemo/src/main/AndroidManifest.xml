@@ -85,9 +85,15 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".thirdframework.okhttp.OkHttpTestActivity"
+        <activity
+            android:name=".thirdframework.okhttp.OkHttpTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".thirdframework.rxjava.RxJavaTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
 
         <service android:name=".context.ContextTestService" />
 
