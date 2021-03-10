@@ -39,7 +39,14 @@ class RxJavaOperatorTestActivity : AppCompatActivity() {
                 )
             }
 
-            btnCompanion.setOnClickListener { }
+            btnCombine.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@RxJavaOperatorTestActivity,
+                        RxJavaCombineOperatorActivity::class.java
+                    )
+                )
+            }
 
             btnFunction.setOnClickListener { }
 
