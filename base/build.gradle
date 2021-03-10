@@ -67,4 +67,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
 
     api 'com.squareup.okhttp3:okhttp:3.14.7'
+
+    api 'com.squareup.retrofit2:retrofit:2.5.0'
 }
