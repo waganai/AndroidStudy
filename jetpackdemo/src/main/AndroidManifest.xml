@@ -95,6 +95,16 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".thirdframework.rxjava.RxJavaOperatorTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".thirdframework.rxjava.RxJavaCreateOperatorActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
         <service android:name=".context.ContextTestService" />
 
     </application>

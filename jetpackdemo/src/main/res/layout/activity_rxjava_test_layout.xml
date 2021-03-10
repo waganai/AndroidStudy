@@ -41,6 +41,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_rxjava_chain" />
 
+        <Button
+            android:id="@+id/btn_rxjava_operator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="RxJava  Operator"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_rxjava_dispose" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

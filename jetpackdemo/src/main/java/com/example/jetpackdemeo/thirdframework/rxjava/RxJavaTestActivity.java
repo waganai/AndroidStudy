@@ -1,7 +1,9 @@
 package com.example.jetpackdemeo.thirdframework.rxjava;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,6 +46,8 @@ public class RxJavaTestActivity extends AppCompatActivity {
         viewBindings.btnRxjavaDispose.setOnClickListener(v -> {
             rxJavaDispose();
         });
+
+        viewBindings.btnRxjavaOperator.setOnClickListener(v -> startActivity(new Intent(RxJavaTestActivity.this, RxJavaOperatorTestActivity.class)));
     }
 
     private void rxJavaSeparation() {
