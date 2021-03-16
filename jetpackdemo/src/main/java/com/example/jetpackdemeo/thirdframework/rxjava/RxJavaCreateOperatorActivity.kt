@@ -20,8 +20,8 @@ class RxJavaCreateOperatorActivity : AppCompatActivity() {
 
     private val format = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
     var viewBindings: ActivityRxjavaCreateOperatorLayoutBinding? = null
-    var timeStr = format.format(Date(System.currentTimeMillis()))
-    val deferObsrvable = Observable.defer {
+    private var timeStr: String = format.format(Date(System.currentTimeMillis()))
+    private val deferObservable = Observable.defer {
         Observable.just<String>(
             timeStr
         )
@@ -272,7 +272,7 @@ class RxJavaCreateOperatorActivity : AppCompatActivity() {
     private fun defer() {
         timeStr = format.format(System.currentTimeMillis())
 
-        deferObsrvable.subscribe(object : Observer<String> {
+        deferObservable.subscribe(object : Observer<String> {
             override fun onSubscribe(d: Disposable) {
                 Log.e(TAG, "defer() onSubscribe($d)")
             }
@@ -293,45 +293,48 @@ class RxJavaCreateOperatorActivity : AppCompatActivity() {
 
     private fun timer() {
         Log.e(TAG, "timer()")
-        Observable.timer(2, TimeUnit.SECONDS).subscribe(object : Observer<Long> {
-            override fun onSubscribe(d: Disposable) {
-                Log.e(TAG, "defer() onSubscribe($d)")
-            }
+        Observable
+            .timer(2, TimeUnit.SECONDS)
+            .subscribe(object : Observer<Long> {
+                override fun onSubscribe(d: Disposable) {
+                    Log.e(TAG, "defer() onSubscribe($d)")
+                }
 
-            override fun onNext(l: Long) {
-                Log.e(TAG, "defer() onNext($l)")
-            }
+                override fun onNext(l: Long) {
+                    Log.e(TAG, "defer() onNext($l)")
+                }
 
-            override fun onError(e: Throwable) {
-                Log.e(TAG, "defer() onError($e)")
-            }
+                override fun onError(e: Throwable) {
+                    Log.e(TAG, "defer() onError($e)")
+                }
 
-            override fun onComplete() {
-                Log.e(TAG, "defer() onComplete()")
-            }
-        })
+                override fun onComplete() {
+                    Log.e(TAG, "defer() onComplete()")
+                }
+            })
     }
 
     private fun interval() {
         Log.e(TAG, "interval()")
 
-        Observable.interval(1, 2, TimeUnit.SECONDS).subscribe(object : Observer<Long> {
-            override fun onSubscribe(d: Disposable) {
-                Log.e(TAG, "interval() onSubscribe($d)")
-            }
+        Observable.interval(1, 2, TimeUnit.SECONDS)
+            .subscribe(object : Observer<Long> {
+                override fun onSubscribe(d: Disposable) {
+                    Log.e(TAG, "interval() onSubscribe($d)")
+                }
 
-            override fun onNext(l: Long) {
-                Log.e(TAG, "interval() onNext($l)")
-            }
+                override fun onNext(l: Long) {
+                    Log.e(TAG, "interval() onNext($l)")
+                }
 
-            override fun onError(e: Throwable) {
-                Log.e(TAG, "interval() onError($e)")
-            }
+                override fun onError(e: Throwable) {
+                    Log.e(TAG, "interval() onError($e)")
+                }
 
-            override fun onComplete() {
-                Log.e(TAG, "interval() onComplete()")
-            }
-        })
+                override fun onComplete() {
+                    Log.e(TAG, "interval() onComplete()")
+                }
+            })
     }
 
     private fun intervalRange() {

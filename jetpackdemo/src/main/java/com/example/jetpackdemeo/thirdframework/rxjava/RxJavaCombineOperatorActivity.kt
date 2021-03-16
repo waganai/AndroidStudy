@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.databinding.ActivityRxjavaCombineOperatorLayoutBinding
 import io.reactivex.*
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import java.util.concurrent.TimeUnit
 
 class RxJavaCombineOperatorActivity : AppCompatActivity() {
@@ -201,6 +200,8 @@ class RxJavaCombineOperatorActivity : AppCompatActivity() {
             emitter.onNext(3)
             emitter.onError(NullPointerException())
             emitter.onNext(4)
+            emitter.onNext(5)
+            emitter.onNext(6)
             emitter.onComplete()
         }), Observable.just(10, 11, 12))
             .subscribe(object : Observer<Int> {
@@ -253,7 +254,7 @@ class RxJavaCombineOperatorActivity : AppCompatActivity() {
     }
 
     private fun zip() {
-        Observable.zip(Observable.just(1, 2, 3),
+        Observable.zip(Observable.just(1, 2, 3, 4, 5, 6),
             Observable.just("A", "B", "C", "D"),
             { t1, t2 -> "t1 = $t1, t2 = $t2" }).subscribe(object : Observer<String> {
             override fun onSubscribe(d: Disposable) {
@@ -322,8 +323,9 @@ class RxJavaCombineOperatorActivity : AppCompatActivity() {
 
     private fun collect() {
         Observable.just(1, 2, 3, 4)
-            .collect({ ArrayList<Int>() }
-            ) { t1, t2 -> t1?.add(t2 ?: 0) }.subscribe(object : SingleObserver<ArrayList<Int>> {
+            .collect({ ArrayList<Int>() })
+            { t1, t2 -> t1?.add(t2 ?: 0) }
+            .subscribe(object : SingleObserver<ArrayList<Int>> {
                 override fun onSubscribe(d: Disposable) {
                     Log.e(TAG, "collect() onSubscribe($d)")
                 }
@@ -335,7 +337,6 @@ class RxJavaCombineOperatorActivity : AppCompatActivity() {
                 override fun onError(e: Throwable) {
                     Log.e(TAG, "collect() onError($e)")
                 }
-
             })
     }
 
@@ -384,13 +385,8 @@ class RxJavaCombineOperatorActivity : AppCompatActivity() {
     }
 
     private fun count() {
-        Observable.just(1, 2, 3, 4, 5, 6)
+        val disposable = Observable.just(1, 2, 3, 4, 5, 6)
             .count()
-            .subscribe(object : Consumer<Long> {
-                override fun accept(t: Long?) {
-                    Log.e(TAG, "count() accept($t)")
-                }
-            })
+            .subscribe { t -> Log.e(TAG, "count() accept($t)") }
     }
-
 }

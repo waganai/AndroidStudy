@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.databinding.ActivityRxjavaTransformLayoutBinding
 import io.reactivex.Observable
-import io.reactivex.ObservableEmitter
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
@@ -49,27 +48,28 @@ class RxJavaTransformOperatorActivity : AppCompatActivity() {
     }
 
     private fun map() {
-        Observable.just(1, 2, 3).map { t ->
-            val s = (t * t).toString()
-            Log.e(TAG, "map() apply() s = $s")
-            s
-        }.subscribe(object : Observer<String> {
-            override fun onSubscribe(d: Disposable) {
-                Log.e(TAG, "map() onSubscribe($d)")
-            }
+        Observable.just(1, 2, 3, 4, 5, 6)
+            .map { t ->
+                val s = (t * t).toString()
+                Log.e(TAG, "map() apply() t = $t, s = $s")
+                s
+            }.subscribe(object : Observer<String> {
+                override fun onSubscribe(d: Disposable) {
+                    Log.e(TAG, "map() onSubscribe($d)")
+                }
 
-            override fun onNext(t: String) {
-                Log.e(TAG, "map() onNext($t)")
-            }
+                override fun onNext(t: String) {
+                    Log.e(TAG, "map() onNext($t)")
+                }
 
-            override fun onError(e: Throwable) {
-                Log.e(TAG, "map() onError($e)")
-            }
+                override fun onError(e: Throwable) {
+                    Log.e(TAG, "map() onError($e)")
+                }
 
-            override fun onComplete() {
-                Log.e(TAG, "map() onComplete()")
-            }
-        })
+                override fun onComplete() {
+                    Log.e(TAG, "map() onComplete()")
+                }
+            })
     }
 
     private fun flatMap() {
@@ -138,19 +138,17 @@ class RxJavaTransformOperatorActivity : AppCompatActivity() {
     }
 
     private fun buffer() {
-        Observable.create(object : ObservableOnSubscribe<Int> {
-            override fun subscribe(emitter: ObservableEmitter<Int>) {
-                emitter.onNext(1)
-                emitter.onNext(2)
-                emitter.onNext(3)
-                emitter.onNext(4)
-                emitter.onNext(5)
-                emitter.onNext(6)
-                emitter.onNext(7)
-                emitter.onNext(8)
-                emitter.onNext(9)
-                emitter.onNext(0)
-            }
+        Observable.create(ObservableOnSubscribe<Int> { emitter ->
+            emitter.onNext(1)
+            emitter.onNext(2)
+            emitter.onNext(3)
+            emitter.onNext(4)
+            emitter.onNext(5)
+            emitter.onNext(6)
+            emitter.onNext(7)
+            emitter.onNext(8)
+            emitter.onNext(9)
+            emitter.onNext(0)
         })
             .buffer(3, 2)
             .subscribe(object : Observer<List<Int>> {
