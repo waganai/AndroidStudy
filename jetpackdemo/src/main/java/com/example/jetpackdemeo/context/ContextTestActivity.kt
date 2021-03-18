@@ -7,7 +7,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.jetpackdemeo.JetPackApplication
 import com.example.jetpackdemeo.ShowActivity
 import com.example.jetpackdemeo.databinding.ActivityContextTestLayoutBinding
 
@@ -55,11 +54,11 @@ class ContextTestActivity : AppCompatActivity() {
             }
 
             btnApplicationActivity1.setOnClickListener {
-                JetPackApplication.instance?.startActivityFunction1()
+//                JetPackApplication.instance?.startActivityFunction1()
             }
 
             btnApplicationActivity2.setOnClickListener {
-                JetPackApplication.instance?.startActivityFunction2()
+//                JetPackApplication.instance?.startActivityFunction2()
             }
 
             btnServiceActivity1.setOnClickListener {
@@ -84,11 +83,11 @@ class ContextTestActivity : AppCompatActivity() {
             }
 
             btnApplicationDialog.setOnClickListener {
-                JetPackApplication.instance?.showDialogFunction()
+//                JetPackApplication.instance?.showDialogFunction()
             }
 
             btnApplicationDialog2.setOnClickListener {
-                JetPackApplication.instance?.showDialogFunction2()
+//                JetPackApplication.instance?.showDialogFunction2()
             }
 
             btnServiceDialog.setOnClickListener {
@@ -100,7 +99,7 @@ class ContextTestActivity : AppCompatActivity() {
             }
 
             btnApplicationToast.setOnClickListener {
-                JetPackApplication.instance?.showToastFunction()
+//                JetPackApplication.instance?.showToastFunction()
             }
 
             btnServiceToast.setOnClickListener {

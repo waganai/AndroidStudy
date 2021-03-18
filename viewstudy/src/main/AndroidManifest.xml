@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hubiao.view">
 
-    <application>
+    <application >
         <activity
-            android:name="com.hubiao.view.LayoutActivity"
+            android:name=".LayoutActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyDemo.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".module.constraintlayout.ConstraintLayoutActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
 
         <activity
-            android:name="com.hubiao.view.module.constraintlayout.ConstraintLayoutActivity"
+            android:name=".module.cardview.CardViewActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
 
-        <activity
-            android:name="com.hubiao.view.module.cardview.CardViewActivity"
+        <activity android:name=".module.recyclerview.RecyclerViewActivity"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.StudyDemo.NoActionBar" />
-
-        <activity
-            android:name="com.hubiao.view.module.recyclerview.RecyclerViewActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/Theme.StudyDemo.NoActionBar" />
+            android:theme="@style/Theme.StudyDemo.NoActionBar"/>
 
         <activity
             android:name="com.hubiao.view.module.toast.ToastTestActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyDemo.NoActionBar" />
+
+        <service
+            android:name="com.didichuxing.doraemonkit.kit.colorpick.ScreenRecorderService"
+            android:enabled="true"
+            android:foregroundServiceType="mediaProjection"
+            tools:targetApi="q" />
 
     </application>
 

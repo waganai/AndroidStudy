@@ -1,11 +1,20 @@
 package com.hubiao.study
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import com.alibaba.android.arouter.launcher.ARouter
+import com.hubiao.base.JETPACK_ACTIVITY
+import com.hubiao.base.LAYOUT_ACTIVITY
 
 class MainActivity : AppCompatActivity() {
+
+    companion object{
+        val TAG = MainActivity::class.simpleName
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,5 +36,17 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun onStartJetPack(view: View) {
+        Log.e(TAG, "onStartJetPack()")
+
+        ARouter.getInstance().build(JETPACK_ACTIVITY).navigation(this)
+    }
+
+    fun onStartView(view: View) {
+        Log.e(TAG, "onStartView()")
+
+        ARouter.getInstance().build(LAYOUT_ACTIVITY).navigation(this)
     }
 }

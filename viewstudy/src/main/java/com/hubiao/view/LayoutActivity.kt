@@ -4,11 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.hubiao.base.LAYOUT_ACTIVITY
 import com.hubiao.view.module.cardview.CardViewActivity
 import com.hubiao.view.module.constraintlayout.ConstraintLayoutActivity
 import com.hubiao.view.module.recyclerview.RecyclerViewActivity
 import com.hubiao.view.module.toast.ToastTestActivity
 
+@Route(path = LAYOUT_ACTIVITY)
 class LayoutActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

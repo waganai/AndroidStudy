@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.*
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.jetpackdemeo.databinding.ActivityJetpackLayoutBinding
+import com.hubiao.base.JETPACK_ACTIVITY
 
+@Route(path = JETPACK_ACTIVITY)
 class JetPackActivity : AppCompatActivity() {
 
     lateinit var mViewBinding: ActivityJetpackLayoutBinding

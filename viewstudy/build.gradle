@@ -4,6 +4,13 @@ if (isIndependent.toBoolean()) {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 
 android {
     compileSdkVersion 30
@@ -19,13 +26,21 @@ android {
         consumerProguardFiles "consumer-rules.pro"
 
         multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     sourceSets {
         main {
             // 在独立运行或者作为Library调试时，使用不同的AndroidManifest.xml文件
             if (isIndependent.toBoolean()) {
-                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+                manifest.srcFile 'src/demo/AndroidManifest.xml'
+
+                java.srcDirs += ['src/demo/java']
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             }

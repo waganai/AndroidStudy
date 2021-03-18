@@ -1,4 +1,9 @@
 package com.hubiao.base
 
-class BaseApplication {
+import androidx.multidex.MultiDexApplication
+
+open class BaseApplication:MultiDexApplication() {
+    override fun onCreate() {
+        super.onCreate()
+    }
 }
