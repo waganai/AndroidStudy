@@ -48,7 +48,10 @@ class RxJavaOperatorTestActivity : AppCompatActivity() {
                 )
             }
 
-            btnFunction.setOnClickListener { }
+            btnFunction.setOnClickListener {
+                startActivity(Intent(this@RxJavaOperatorTestActivity,
+                RxJavaFunctionOperatorTestActivity::class.java))
+            }
 
             btnBool.setOnClickListener { }
         }
