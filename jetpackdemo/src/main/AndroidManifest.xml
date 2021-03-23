@@ -71,6 +71,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".dialog.DialogTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".multithreading.MultithreadingTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

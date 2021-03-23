@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.activity.LifeCycleTestActivity1
 import com.example.jetpackdemeo.context.ContextTestActivity
 import com.example.jetpackdemeo.databinding.ActivityJetpackDemoLayoutBinding
+import com.example.jetpackdemeo.dialog.DialogTestActivity
 import com.example.jetpackdemeo.fragment.FragmentTestActivity
 import com.example.jetpackdemeo.handler.HandlerTestActivity
 import com.example.jetpackdemeo.multithreading.MultithreadingTestActivity
@@ -62,6 +63,10 @@ class DemoActivity : AppCompatActivity() {
 
             btnStartToast.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, ToastTestActivity::class.java))
+            }
+
+            btnShowDialog.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, DialogTestActivity::class.java))
             }
 
             btnStartThread.setOnClickListener {
