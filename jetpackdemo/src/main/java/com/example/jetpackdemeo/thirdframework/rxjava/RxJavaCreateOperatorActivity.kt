@@ -27,6 +27,8 @@ class RxJavaCreateOperatorActivity : AppCompatActivity() {
         )
     }
 
+    private val justObservable = Observable.just(timeStr)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,6 +47,10 @@ class RxJavaCreateOperatorActivity : AppCompatActivity() {
 
             btnJust.setOnClickListener {
                 just()
+            }
+
+            btnJust2.setOnClickListener {
+                just2()
             }
 
             btnFromArray.setOnClickListener {
@@ -139,6 +145,29 @@ class RxJavaCreateOperatorActivity : AppCompatActivity() {
 
                 override fun onComplete() {
                     Log.e(TAG, "just() onComplete()")
+                }
+            })
+    }
+
+    private fun just2() {
+        timeStr = format.format(System.currentTimeMillis())
+        // 只应该用来发射10个及以下数据
+        justObservable
+            .subscribe(object : Observer<String> {
+                override fun onSubscribe(d: Disposable) {
+                    Log.e(TAG, "just2() onSubscribe($d)")
+                }
+
+                override fun onNext(t: String) {
+                    Log.e(TAG, "just2() onNext($t)")
+                }
+
+                override fun onError(e: Throwable) {
+                    Log.e(TAG, "just2() onError($e)")
+                }
+
+                override fun onComplete() {
+                    Log.e(TAG, "just2() onComplete()")
                 }
             })
     }

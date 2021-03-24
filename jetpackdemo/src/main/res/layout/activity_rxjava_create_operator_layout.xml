@@ -31,6 +31,17 @@
             app:layout_constraintTop_toBottomOf="@id/btn_create" />
 
         <Button
+            android:id="@+id/btn_just2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="just() 2"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_just" />
+
+        <Button
             android:id="@+id/btn_fromArray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +50,7 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_just" />
+            app:layout_constraintTop_toBottomOf="@id/btn_just2" />
 
         <Button
             android:id="@+id/btn_fromIterable"
