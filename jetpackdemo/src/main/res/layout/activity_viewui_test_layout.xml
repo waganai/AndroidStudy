@@ -13,9 +13,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="ViewTest"
+            android:text="MarkView MarkViewGroup"
             android:textAllCaps="false"
+            android:onClick="onStartMarkViewActivity"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btn_bitmap_shader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Bitmap Shader"
+            android:onClick="onStartBitmapShaderActivity"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/btn_custommarkview"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
