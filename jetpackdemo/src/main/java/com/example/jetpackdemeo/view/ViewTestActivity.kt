@@ -12,9 +12,9 @@ class ViewTestActivity : AppCompatActivity() {
 
         when (intent.getIntExtra(
             ViewUiTestActivity.VIEW_ACTIVITY_TYPE,
-            ViewUiTestActivity.MARK_VIEW_VIEWGROP
+            ViewUiTestActivity.MARK_VIEW_VIEWGROUP
         )) {
-            ViewUiTestActivity.MARK_VIEW_VIEWGROP ->
+            ViewUiTestActivity.MARK_VIEW_VIEWGROUP ->
                 setContentView(ActivityMarkviewViewgroupLayoutBinding.inflate(layoutInflater).root)
 
             ViewUiTestActivity.BITMAP_SHADER ->
