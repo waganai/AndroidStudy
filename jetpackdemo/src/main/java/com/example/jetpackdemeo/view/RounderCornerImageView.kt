@@ -1,6 +1,5 @@
 package com.example.jetpackdemeo.view
 
-import android.R.attr
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -54,7 +53,8 @@ class RounderCornerImageView(context: Context, attrs: AttributeSet?, defStyleAtt
         super.onDraw(canvas)
 
         val radius = width.coerceAtMost(height) / 2.toFloat()
-        bounds.set(0.toFloat(), 0.toFloat(), width.toFloat(), height.toFloat())
-        canvas?.drawRoundRect(bounds, radius, radius, paint)
+//        bounds.set(0.toFloat(), 0.toFloat(), width.toFloat(), height.toFloat())
+//        canvas?.drawRoundRect(bounds, radius, radius, paint)
+        canvas?.drawCircle(width.toFloat() / 2, height.toFloat() / 2, radius, paint)
     }
 }

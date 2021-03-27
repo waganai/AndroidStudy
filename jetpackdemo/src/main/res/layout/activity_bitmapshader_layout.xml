@@ -10,9 +10,8 @@
 
         <com.example.jetpackdemeo.view.RounderCornerImageView
             android:id="@+id/rv_1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@color/purple_700"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
