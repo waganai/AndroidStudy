@@ -9,7 +9,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.databinding.ActivityIpcLayoutBinding
-
+import com.hubiao.ipcdemo.IMyAidlInterface
 
 class IpcActivity : AppCompatActivity() {
 
@@ -18,6 +18,7 @@ class IpcActivity : AppCompatActivity() {
     }
 
     private var clientMessenger: Messenger? = null
+    private var serverMessenger: Messenger? = null
     private val handler = object : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
@@ -35,17 +36,30 @@ class IpcActivity : AppCompatActivity() {
         }
     }
 
+    private var stub: IMyAidlInterface? = null
+
     private val messengerConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             try {
-                clientMessenger = Messenger(service)
+                serverMessenger = Messenger(service)
                 val message = Message.obtain()
-                message.replyTo = Messenger(handler)
+                message.replyTo = clientMessenger
                 message.what = 1
-                clientMessenger?.send(message)
+                serverMessenger?.send(message)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {
+        }
+    }
+
+    private val aidlConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            stub = IMyAidlInterface.Stub.asInterface(service)
+
+            Log.e(TAG, "Aidl Service connected!")
         }
 
         override fun onServiceDisconnected(name: ComponentName?) {
@@ -56,6 +70,8 @@ class IpcActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(ActivityIpcLayoutBinding.inflate(layoutInflater).root)
+
+        clientMessenger = Messenger(handler)
     }
 
     fun onStartMessenger(view: View) {
@@ -68,24 +84,27 @@ class IpcActivity : AppCompatActivity() {
 
     fun onMessengerSend1(view: View) {
         try {
-            val message = Message()
+            val message = Message.obtain()
             message.what = 2
             val bundle = Bundle()
             bundle.putString("name", "Tony")
             message.data = bundle
             //使用
-            clientMessenger?.send(message)
+            serverMessenger?.send(message)
         } catch (e: RemoteException) {
             e.printStackTrace()
         }
     }
 
     fun onStartAidl(view: View) {
-
+        bindService(
+            Intent().setAction("com.hubiao.ipc.aidl").setPackage("com.hubiao.ipcdemo"),
+            aidlConnection,
+            Service.BIND_AUTO_CREATE
+        )
     }
 
     fun onAidlSend1(view: View) {
-
+        Log.e(TAG, "aidlStub.getName() is ${stub?.getName("铁木真")}")
     }
-
 }
