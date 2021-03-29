@@ -5,8 +5,8 @@ import android.os.Parcelable
 
 class User() : Parcelable {
 
-    private var mName: String? = null
-    private var mAge: Int = 0
+    var mName: String? = null
+    var mAge: Int = 0
 
     constructor(parcel: Parcel) : this() {
         mName = parcel.readString()

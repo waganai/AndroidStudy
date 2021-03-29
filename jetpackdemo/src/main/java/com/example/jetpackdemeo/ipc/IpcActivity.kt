@@ -10,6 +10,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.databinding.ActivityIpcLayoutBinding
 import com.hubiao.ipcdemo.IMyAidlInterface
+import com.hubiao.ipcdemo.UserChangeListener
+import com.hubiao.ipcdemo.bean.User
 
 class IpcActivity : AppCompatActivity() {
 
@@ -52,6 +54,13 @@ class IpcActivity : AppCompatActivity() {
         }
 
         override fun onServiceDisconnected(name: ComponentName?) {
+        }
+    }
+
+    private val mUserChangeListener = object : UserChangeListener.Stub() {
+        override fun onUserChanged(user: User?) {
+            Log.e(TAG, "onUserChanged() currentThread is ${Thread.currentThread().name}")
+            Log.e(TAG, "aidlStub.getName() is $user")
         }
     }
 
@@ -114,5 +123,13 @@ class IpcActivity : AppCompatActivity() {
             Log.e(TAG, "onOperateAidl2() currentThread is ${Thread.currentThread().name}")
             Log.e(TAG, "aidlStub.getName() is ${stub?.getUserById(233)}")
         }.start()
+    }
+
+    fun onAidlRegisterListener(view: View) {
+        stub?.registerListener(mUserChangeListener)
+    }
+
+    fun onAidlUnRegisterListener(view: View) {
+        stub?.unRegisterListener(mUserChangeListener)
     }
 }

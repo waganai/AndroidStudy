@@ -68,5 +68,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_aidl_operate1" />
 
+        <Button
+            android:id="@+id/btn_aidl_register_listener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aidl register listener"
+            android:textAllCaps="false"
+            android:onClick="onAidlRegisterListener"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_aidl_operate2" />
+
+        <Button
+            android:id="@+id/btn_aidl_unregister_listener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aidl unrigister listener"
+            android:textAllCaps="false"
+            android:onClick="onAidlUnRegisterListener"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_aidl_register_listener" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
