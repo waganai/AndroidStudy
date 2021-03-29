@@ -124,6 +124,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ipc.IpcActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
         <service android:name=".context.ContextTestService" />
 
     </application>

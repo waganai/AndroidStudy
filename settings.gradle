@@ -1,3 +1,4 @@
+include ':ipcdemo'
 include ':jetpackdemo'
 include ':base'
 include ':viewstudy'
