@@ -104,7 +104,15 @@ class IpcActivity : AppCompatActivity() {
         )
     }
 
-    fun onAidlSend1(view: View) {
-        Log.e(TAG, "aidlStub.getName() is ${stub?.getName("铁木真")}")
+    fun onOperateAidl1(view: View) {
+        Log.e(TAG, "onOperateAidl1() currentThread is ${Thread.currentThread().name}")
+        Log.e(TAG, "onOperateAidl1() aidlStub.getName() is ${stub?.getName("铁木真")}")
+    }
+
+    fun onOperateAidl2(view: View) {
+        Thread {
+            Log.e(TAG, "onOperateAidl2() currentThread is ${Thread.currentThread().name}")
+            Log.e(TAG, "aidlStub.getName() is ${stub?.getUserById(233)}")
+        }.start()
     }
 }

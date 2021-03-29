@@ -45,16 +45,28 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_messenger_send1" />
 
         <Button
-            android:id="@+id/btn_aidl_send1"
+            android:id="@+id/btn_aidl_operate1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="aidl send"
+            android:text="aidl operate1"
             android:textAllCaps="false"
-            android:onClick="onAidlSend1"
+            android:onClick="onOperateAidl1"
             android:layout_margin="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_start_aidl" />
+
+        <Button
+            android:id="@+id/btn_aidl_operate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aidl operate2"
+            android:textAllCaps="false"
+            android:onClick="onOperateAidl2"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_aidl_operate1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,5 +1,6 @@
 // IMyAidlInterface.aidl
 package com.hubiao.ipcdemo;
+import com.hubiao.ipcdemo.bean.User;
 
 // Declare any non-default types here with import statements
 
@@ -16,4 +17,9 @@ interface IMyAidlInterface {
     *获取姓名
     */
     String getName(String nickName);
+
+    /**
+    *获取用户
+    */
+    User getUserById(int id);
 }
