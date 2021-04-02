@@ -18,6 +18,7 @@ class SimpleAdapter(context: Context) : RecyclerView.Adapter<SimpleAdapter.Simpl
 
     override fun onBindViewHolder(holder: SimpleViewHolder, position: Int) {
         holder.setContent(mContentList?.get(position) ?: "666")
+        holder.mPosition = position
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +34,7 @@ class SimpleAdapter(context: Context) : RecyclerView.Adapter<SimpleAdapter.Simpl
     class SimpleViewHolder(binding: ItemSimpleLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val mBinding = binding
+         var mPosition = -1
         fun setContent(content: String) {
             mBinding.tvContent.text = content
         }

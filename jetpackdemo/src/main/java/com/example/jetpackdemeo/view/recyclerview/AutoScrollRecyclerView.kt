@@ -5,9 +5,11 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.AttributeSet
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 
 class AutoScrollRecyclerView(context: Context, attributeSet: AttributeSet?, defStyle: Int) :
@@ -22,6 +24,12 @@ class AutoScrollRecyclerView(context: Context, attributeSet: AttributeSet?, defS
     private val density = resources.displayMetrics.density
     private var mCanScroll = true
     private var mCurrentChild: View? = null
+    private val mSmoothScroller = object : LinearSmoothScroller(context) {
+        override fun calculateSpeedPerPixel(displayMetrics: DisplayMetrics?): Float {
+            return 6F
+        }
+    }
+    private var mTargetPosition = -1
 
     private val mHandler = object : Handler(Looper.getMainLooper()) {
         override fun dispatchMessage(msg: Message) {
@@ -60,8 +68,9 @@ class AutoScrollRecyclerView(context: Context, attributeSet: AttributeSet?, defS
                 if (y <= 100 * density + 0.5F) {
                     mCanScroll = false
 
+                    mTargetPosition = getViewHolderPosition(mCurrentChild) - 1
                     mHandler.removeCallbacksAndMessages(null)
-                    mHandler.sendEmptyMessageDelayed(AUTO_SCROLL_UP, 16)
+                    mHandler.sendEmptyMessageDelayed(AUTO_SCROLL_UP, 40)
 
                     return true
                 }
@@ -69,8 +78,10 @@ class AutoScrollRecyclerView(context: Context, attributeSet: AttributeSet?, defS
                 if (y >= bottom - 100 * density + 0.5F) {
                     mCanScroll = false
 
+                    mTargetPosition = getViewHolderPosition(mCurrentChild) + 1
+
                     mHandler.removeCallbacksAndMessages(null)
-                    mHandler.sendEmptyMessageDelayed(AUTO_SCROLL_DOWN, 16)
+                    mHandler.sendEmptyMessageDelayed(AUTO_SCROLL_DOWN, 40)
 
                     return true
                 }
@@ -81,9 +92,10 @@ class AutoScrollRecyclerView(context: Context, attributeSet: AttributeSet?, defS
     }
 
     private fun autoScrollVertical(verticalDistance: Int) {
-        scrollBy(0, verticalDistance)
-
         mCanScroll = true
+
+        mSmoothScroller.targetPosition = mTargetPosition
+        layoutManager?.startSmoothScroll(mSmoothScroller)
     }
 
     private fun getVisibleViewHolder(currentX: Int, currentY: Int): View? {
@@ -102,6 +114,12 @@ class AutoScrollRecyclerView(context: Context, attributeSet: AttributeSet?, defS
         return view?.run {
             (getChildViewHolder(this) as SimpleAdapter.SimpleViewHolder).getContent()
         } ?: "empty"
+    }
+
+    private fun getViewHolderPosition(view: View?): Int {
+        return view?.run {
+            (getChildViewHolder(this) as SimpleAdapter.SimpleViewHolder).mPosition
+        } ?: -1
     }
 
     private fun isInView(currentX: Int, currentY: Int, targetView: View?): Boolean {
