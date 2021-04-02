@@ -120,13 +120,20 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".thirdframework.rxjava.RxJavaFunctionOperatorTestActivity"
+        <activity
+            android:name=".thirdframework.rxjava.RxJavaFunctionOperatorTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".ipc.IpcActivity"
+        <activity
+            android:name=".ipc.IpcActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.recyclerview.AutoScrollRecyclerViewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
 
         <service android:name=".context.ContextTestService" />
 

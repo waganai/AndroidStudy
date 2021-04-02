@@ -14,6 +14,7 @@ import com.example.jetpackdemeo.multithreading.MultithreadingTestActivity
 import com.example.jetpackdemeo.thirdframework.ThirdFrameworkTestActivity
 import com.example.jetpackdemeo.toast.ToastTestActivity
 import com.example.jetpackdemeo.view.ViewUiTestActivity
+import com.example.jetpackdemeo.view.recyclerview.AutoScrollRecyclerViewActivity
 
 class DemoActivity : AppCompatActivity() {
 
@@ -56,6 +57,10 @@ class DemoActivity : AppCompatActivity() {
 
             btnStartView.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, ViewUiTestActivity::class.java))
+            }
+
+            btnStartRecyclerview.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, AutoScrollRecyclerViewActivity::class.java))
             }
 
             btnStartHandler.setOnClickListener {
