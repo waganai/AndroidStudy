@@ -15,6 +15,7 @@ import com.example.jetpackdemeo.thirdframework.ThirdFrameworkTestActivity
 import com.example.jetpackdemeo.toast.ToastTestActivity
 import com.example.jetpackdemeo.view.ViewUiTestActivity
 import com.example.jetpackdemeo.view.recyclerview.AutoScrollRecyclerViewActivity
+import com.example.jetpackdemeo.view.recyclerview.SimpleRecyclerViewActivity
 
 class DemoActivity : AppCompatActivity() {
 
@@ -61,6 +62,10 @@ class DemoActivity : AppCompatActivity() {
 
             btnStartRecyclerview.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, AutoScrollRecyclerViewActivity::class.java))
+            }
+
+            btnStartRecyclerview1.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java))
             }
 
             btnStartHandler.setOnClickListener {
