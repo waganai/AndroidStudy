@@ -64,8 +64,14 @@ class DemoActivity : AppCompatActivity() {
                 startActivity(Intent(this@DemoActivity, AutoScrollRecyclerViewActivity::class.java))
             }
 
-            btnStartRecyclerview1.setOnClickListener {
-                startActivity(Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java))
+            btnStartRecyclerview5.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java).
+                putExtra(SimpleRecyclerViewActivity.SPAN_COUNT, SimpleRecyclerViewActivity.SPAN_COUNT_5))
+            }
+
+            btnStartRecyclerview10.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java).
+                putExtra(SimpleRecyclerViewActivity.SPAN_COUNT, SimpleRecyclerViewActivity.SPAN_COUNT_10))
             }
 
             btnStartHandler.setOnClickListener {

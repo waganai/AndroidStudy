@@ -8,7 +8,14 @@ import com.example.jetpackdemeo.databinding.ActivityAutoScrollrecyclerviewLayout
 
 class SimpleRecyclerViewActivity : AppCompatActivity() {
 
+    companion object{
+        val SPAN_COUNT = "SPAN_COUNT"
+        val SPAN_COUNT_5 =  5
+        val SPAN_COUNT_10 =  10
+    }
+
     var mViewBindings: ActivityAutoScrollrecyclerviewLayoutBinding? = null
+    var mSpanCount = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +23,8 @@ class SimpleRecyclerViewActivity : AppCompatActivity() {
         mViewBindings = ActivityAutoScrollrecyclerviewLayoutBinding.inflate(layoutInflater)
 
         setContentView(mViewBindings?.root)
+
+        mSpanCount = intent.getIntExtra(SPAN_COUNT, 1)
 
         init()
     }
@@ -170,7 +179,7 @@ class SimpleRecyclerViewActivity : AppCompatActivity() {
             this.adapter =
                 SimpleAdapter(this@SimpleRecyclerViewActivity).setContentList(listContent)
             layoutManager =
-                GridLayoutManager(this@SimpleRecyclerViewActivity, 5, RecyclerView.VERTICAL, false)
+                GridLayoutManager(this@SimpleRecyclerViewActivity, mSpanCount, RecyclerView.VERTICAL, false)
         }
     }
 }

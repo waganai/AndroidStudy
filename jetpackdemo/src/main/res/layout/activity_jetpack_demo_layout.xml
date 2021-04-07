@@ -75,15 +75,27 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_start_view" />
 
         <Button
-            android:id="@+id/btn_start_recyclerview1"
+            android:id="@+id/btn_start_recyclerview5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Start RecyclerView"
+            android:text="Start RecyclerView spanCount 5"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_start_recyclerview" />
+
+        <Button
+            android:id="@+id/btn_start_recyclerview10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Start RecyclerView spanCount 10"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_recyclerview5" />
+
 
         <Button
             android:id="@+id/btn_start_handler"
@@ -94,7 +106,7 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_recyclerview1" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_recyclerview10" />
 
         <Button
             android:id="@+id/btn_start_toast"
