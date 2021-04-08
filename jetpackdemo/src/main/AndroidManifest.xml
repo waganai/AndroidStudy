@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application>
+    <application android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".JetPackActivity"
             android:launchMode="singleTop"
@@ -122,6 +122,11 @@
 
         <activity
             android:name=".thirdframework.rxjava.RxJavaFunctionOperatorTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".thirdframework.retrofit.RetrofitTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
