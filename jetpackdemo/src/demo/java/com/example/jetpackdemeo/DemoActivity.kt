@@ -16,6 +16,7 @@ import com.example.jetpackdemeo.toast.ToastTestActivity
 import com.example.jetpackdemeo.view.ViewUiTestActivity
 import com.example.jetpackdemeo.view.recyclerview.AutoScrollRecyclerViewActivity
 import com.example.jetpackdemeo.view.recyclerview.SimpleRecyclerViewActivity
+import com.example.jetpackdemeo.webview.WebViewActivity
 
 class DemoActivity : AppCompatActivity() {
 
@@ -84,6 +85,10 @@ class DemoActivity : AppCompatActivity() {
 
             btnShowDialog.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, DialogTestActivity::class.java))
+            }
+
+            btnShowWebview.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, WebViewActivity::class.java))
             }
 
             btnStartThread.setOnClickListener {
