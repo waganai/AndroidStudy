@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jetpackdemeo.databinding.ActivityRxjavaOperatorLayoutBinding
-import io.reactivex.Observable
-import io.reactivex.ObservableOperator
-import io.reactivex.Observer
+import io.reactivex.*
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Function
 
 class RxJavaOperatorTestActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         val TAG = RxJavaFunctionOperatorTestActivity::class.simpleName
     }
 
@@ -71,7 +70,7 @@ class RxJavaOperatorTestActivity : AppCompatActivity() {
             btnLift.setOnClickListener {
                 Observable.just(1, 2, 3, 4, 5)
                     .lift(ObservableOperator<String, Int> { observer ->
-                        object: Observer<Int>{
+                        object : Observer<Int> {
                             override fun onSubscribe(d: Disposable) {
                             }
 
@@ -86,7 +85,7 @@ class RxJavaOperatorTestActivity : AppCompatActivity() {
                             }
                         }
                     })
-                    .subscribe(object:Observer<String>{
+                    .subscribe(object : Observer<String> {
                         override fun onSubscribe(d: Disposable) {
                         }
 
@@ -98,6 +97,37 @@ class RxJavaOperatorTestActivity : AppCompatActivity() {
                         }
 
                         override fun onComplete() {
+                        }
+                    })
+            }
+
+            btnCompose.setOnClickListener {
+                Observable.just(1, 2, 3, 4, 5)
+                    .compose(object : ObservableTransformer<Int, String> {
+                        override fun apply(upstream: Observable<Int>): ObservableSource<String> {
+                            return upstream.flatMap(object :
+                                Function<Int, ObservableSource<String>> {
+                                override fun apply(t: Int): ObservableSource<String> {
+                                    return Observable.just("t = $t")
+                                }
+                            })
+                        }
+                    })
+                    .subscribe(object:Observer<String>{
+                        override fun onSubscribe(d: Disposable) {
+                            Log.e(TAG, "compose() onSubscribe($d)")
+                        }
+
+                        override fun onNext(t: String) {
+                            Log.e(TAG, "compose() onNext($t)")
+                        }
+
+                        override fun onError(e: Throwable) {
+                            Log.e(TAG, "compose() onError($e)")
+                        }
+
+                        override fun onComplete() {
+                            Log.e(TAG, "compose() onComplete()")
                         }
                     })
             }
