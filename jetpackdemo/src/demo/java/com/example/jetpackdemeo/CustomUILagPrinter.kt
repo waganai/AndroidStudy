@@ -25,7 +25,7 @@ class CustomUILagPrinter : Printer {
 
                 Log.e(
                     TAG,
-                    "Lag In Thread${Thread.currentThread().name}, duration = ${mEndTime - mStartTime}"
+                    "Lag In Thread.${Thread.currentThread().name}, duration = ${mEndTime - mStartTime}"
                 )
             }
         }
