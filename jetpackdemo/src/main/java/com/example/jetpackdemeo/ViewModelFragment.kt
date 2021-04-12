@@ -40,7 +40,7 @@ class ViewModelFragment : Fragment() {
         sp = requireActivity().getPreferences(Context.MODE_PRIVATE)
 
         counterModel = ViewModelProvider(
-            requireActivity(),
+            this@ViewModelFragment,
             CounterModel
                 .CounterModelFactory(
                     sp.getInt(
@@ -48,14 +48,12 @@ class ViewModelFragment : Fragment() {
                         0
                     )
                 )
-        )
-            .get(CounterModel::class.java)
+        ).get(CounterModel::class.java)
 
         userModel = ViewModelProvider(
             requireActivity(),
             UserModel.UserModelFactory("小", "明", 0)
-        )
-            .get(UserModel::class.java)
+        ).get(UserModel::class.java)
 
         return viewBinding.root
     }
