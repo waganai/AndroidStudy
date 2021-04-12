@@ -2,7 +2,10 @@ package com.example.jetpackdemeo
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.doOnPreDraw
 import com.example.jetpackdemeo.activity.LifeCycleTestActivity1
 import com.example.jetpackdemeo.context.ContextTestActivity
 import com.example.jetpackdemeo.databinding.ActivityJetpackDemoLayoutBinding
@@ -13,6 +16,7 @@ import com.example.jetpackdemeo.ipc.IpcActivity
 import com.example.jetpackdemeo.multithreading.MultithreadingTestActivity
 import com.example.jetpackdemeo.thirdframework.ThirdFrameworkTestActivity
 import com.example.jetpackdemeo.toast.ToastTestActivity
+import com.example.jetpackdemeo.view.OnePixelView
 import com.example.jetpackdemeo.view.ViewUiTestActivity
 import com.example.jetpackdemeo.view.recyclerview.AutoScrollRecyclerViewActivity
 import com.example.jetpackdemeo.view.recyclerview.SimpleRecyclerViewActivity
@@ -25,11 +29,51 @@ class DemoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        Log.e(JetPackApplication.TAG, "Activity.onCreate() start")
+
         binding = ActivityJetpackDemoLayoutBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
+        (window.decorView as ViewGroup).addView(OnePixelView(this@DemoActivity).addListener(object :
+            OnePixelView.OnePixelViewOnListener {
+            override fun onMeasure() {
+                Log.e(JetPackApplication.TAG, "onePixelView.onMeasure()")
+            }
+
+            override fun onLayout() {
+                Log.e(JetPackApplication.TAG, "window.onePixelView.onLayout()")
+            }
+
+            override fun onDraw() {
+                Log.e(JetPackApplication.TAG, "window.onePixelView.onDraw()")
+            }
+        }))
+
+        window.decorView.doOnPreDraw {
+            Log.e(JetPackApplication.TAG, "window.decorVie.onPreDraw()")
+        }
+        window.decorView.post {
+            Log.e(JetPackApplication.TAG, "window.decorVie.post(Runnable)")
+        }
+
         init()
+
+        Log.e(JetPackApplication.TAG, "Activity.onCreate() end")
+    }
+
+    override fun onResume() {
+        Log.e(JetPackApplication.TAG, "Activity.onResume() start")
+
+        super.onResume()
+
+        Log.e(JetPackApplication.TAG, "Activity.onResume() end")
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+
+        Log.e(JetPackApplication.TAG, "onWindowFocusChanged()")
     }
 
     private fun init() {
@@ -66,13 +110,21 @@ class DemoActivity : AppCompatActivity() {
             }
 
             btnStartRecyclerview5.setOnClickListener {
-                startActivity(Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java).
-                putExtra(SimpleRecyclerViewActivity.SPAN_COUNT, SimpleRecyclerViewActivity.SPAN_COUNT_5))
+                startActivity(
+                    Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java).putExtra(
+                        SimpleRecyclerViewActivity.SPAN_COUNT,
+                        SimpleRecyclerViewActivity.SPAN_COUNT_5
+                    )
+                )
             }
 
             btnStartRecyclerview10.setOnClickListener {
-                startActivity(Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java).
-                putExtra(SimpleRecyclerViewActivity.SPAN_COUNT, SimpleRecyclerViewActivity.SPAN_COUNT_10))
+                startActivity(
+                    Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java).putExtra(
+                        SimpleRecyclerViewActivity.SPAN_COUNT,
+                        SimpleRecyclerViewActivity.SPAN_COUNT_10
+                    )
+                )
             }
 
             btnStartHandler.setOnClickListener {

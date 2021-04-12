@@ -2,8 +2,10 @@ package com.example.jetpackdemeo
 
 import android.app.Application
 import android.app.Dialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import java.lang.Exception
@@ -12,14 +14,25 @@ class JetPackApplication : Application() {
 
     companion object {
         var instance: JetPackApplication? = null
+        val TAG  = JetPackApplication::class.simpleName
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+
+        Log.e(TAG, "attachBaseContext()")
     }
 
     override fun onCreate() {
         super.onCreate()
 
+        Log.e(TAG, "Application.onCreate() start")
+
         if (instance == null) {
             instance = this
         }
+
+        Log.e(TAG, "Application.onCreate() end")
     }
 
     fun startActivityFunction1() {
