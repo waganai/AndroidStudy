@@ -48,6 +48,8 @@ public class RxJavaTestActivity extends AppCompatActivity {
         });
 
         viewBindings.btnRxjavaOperator.setOnClickListener(v -> startActivity(new Intent(RxJavaTestActivity.this, RxJavaOperatorTestActivity.class)));
+
+        viewBindings.btnBackpressure.setOnClickListener(v -> startBackPressureActivity());
     }
 
     private void rxJavaSeparation() {
@@ -166,5 +168,9 @@ public class RxJavaTestActivity extends AppCompatActivity {
                 Log.e(TAG, "onComplete()");
             }
         });
+    }
+
+    private void startBackPressureActivity() {
+        startActivity(new Intent(RxJavaTestActivity.this, RxJavaBackPressureActivity.class));
     }
 }

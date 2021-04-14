@@ -141,6 +141,11 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".thirdframework.rxjava.RxJavaBackPressureActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".thirdframework.retrofit.RetrofitTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
