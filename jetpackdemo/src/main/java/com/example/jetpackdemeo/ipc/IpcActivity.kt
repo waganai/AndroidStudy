@@ -120,8 +120,10 @@ class IpcActivity : AppCompatActivity() {
 
     fun onOperateAidl2(view: View) {
         Thread {
+            Log.e(TAG, "onOperateAidl2() start")
             Log.e(TAG, "onOperateAidl2() currentThread is ${Thread.currentThread().name}")
             Log.e(TAG, "aidlStub.getName() is ${stub?.getUserById(233)}")
+            Log.e(TAG, "onOperateAidl2() end")
         }.start()
     }
 

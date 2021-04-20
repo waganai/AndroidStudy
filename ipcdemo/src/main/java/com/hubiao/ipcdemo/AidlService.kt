@@ -36,7 +36,10 @@ class AidlService : Service() {
         }
 
         override fun getUserById(id: Int): User {
+            Log.e(TAG, "getUserById()  start")
             Log.e(TAG, "getUserById() currentThread is ${Thread.currentThread().name}")
+            Thread.sleep(2000L)
+            Log.e(TAG, "getUserById() end")
             return mUser
         }
 

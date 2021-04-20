@@ -36,7 +36,7 @@ class JetPackApplication : Application() {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
                 .detectNetwork()
-                .detectDiskReads()
+//                .detectDiskReads()
 //                .detectDiskWrites()
                 .detectCustomSlowCalls()
                 .penaltyDialog()
