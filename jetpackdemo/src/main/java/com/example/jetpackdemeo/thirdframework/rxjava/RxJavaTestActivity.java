@@ -102,7 +102,6 @@ public class RxJavaTestActivity extends AppCompatActivity {
                     emitter.onNext("C");
                     emitter.onNext("D");
                     emitter.onNext("E");
-
                 })
                 .subscribe(new Observer<String>() {
                     @Override
