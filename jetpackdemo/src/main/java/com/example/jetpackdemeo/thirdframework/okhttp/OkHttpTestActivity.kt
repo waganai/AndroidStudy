@@ -15,7 +15,7 @@ class OkHttpTestActivity : AppCompatActivity() {
 
     var viewBindings: ActivityOkhttpLayoutBinding? = null
 
-    val client: OkHttpClient = OkHttpClient()
+    private val client: OkHttpClient = OkHttpClient()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

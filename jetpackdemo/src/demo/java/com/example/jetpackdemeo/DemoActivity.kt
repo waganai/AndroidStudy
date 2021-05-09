@@ -20,6 +20,7 @@ import com.example.jetpackdemeo.toast.ToastTestActivity
 import com.example.jetpackdemeo.view.OnePixelView
 import com.example.jetpackdemeo.view.ViewUiTestActivity
 import com.example.jetpackdemeo.view.recyclerview.AutoScrollRecyclerViewActivity
+import com.example.jetpackdemeo.view.recyclerview.GlideRecyclerViewActivity
 import com.example.jetpackdemeo.view.recyclerview.SimpleRecyclerViewActivity
 import com.example.jetpackdemeo.webview.WebViewActivity
 
@@ -124,6 +125,15 @@ class DemoActivity : AppCompatActivity() {
             btnStartRecyclerview10.setOnClickListener {
                 startActivity(
                     Intent(this@DemoActivity, SimpleRecyclerViewActivity::class.java).putExtra(
+                        SimpleRecyclerViewActivity.SPAN_COUNT,
+                        SimpleRecyclerViewActivity.SPAN_COUNT_10
+                    )
+                )
+            }
+
+            btnStartGlideRecyclerview.setOnClickListener {
+                startActivity(
+                    Intent(this@DemoActivity, GlideRecyclerViewActivity::class.java).putExtra(
                         SimpleRecyclerViewActivity.SPAN_COUNT,
                         SimpleRecyclerViewActivity.SPAN_COUNT_10
                     )
