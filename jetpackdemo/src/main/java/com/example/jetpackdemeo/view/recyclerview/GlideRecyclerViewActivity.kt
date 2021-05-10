@@ -1,6 +1,7 @@
 package com.example.jetpackdemeo.view.recyclerview
 
 import android.content.Context
+import android.graphics.BlurMaskFilter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,9 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.jetpackdemeo.databinding.ActivityRecyclerviewLayoutBinding
 import com.example.jetpackdemeo.databinding.ItemGlideLayoutBinding
+import com.example.jetpackdemeo.thirdframework.glide.BlurTransformation
 
 class GlideRecyclerViewActivity : AppCompatActivity() {
 
@@ -29,7 +32,7 @@ class GlideRecyclerViewActivity : AppCompatActivity() {
 
     fun init() {
         val glideAdapter = GlideListAdapter(this)
-        glideAdapter.mContents = listOf(
+        val list1 = listOf(
             "https://b0.bdstatic.com/comment/AbD06ZlrNmmzmXl7Cw5uFA957ac5114bcf7a68d6bd51e8493dfded.jpg@w_967,h_967",
             "https://pics4.baidu.com/feed/50da81cb39dbb6fd555034142b07651f972b37a7.png?token=15bc3f132fe9e56afa75cb516a427b3d&s=31A0D65944504A6558208DD4030090B3",
             "https://pics7.baidu.com/feed/f3d3572c11dfa9ecff3ca7de40f33904908fc190.png?token=e30b89e14518bc96bc758c08346ccc13&s=9DA6FE114B305C965DF83CD8030080B5",
@@ -64,9 +67,24 @@ class GlideRecyclerViewActivity : AppCompatActivity() {
             "https://pics0.baidu.com/feed/48540923dd54564e71bcbea5c9fa4b85d0584f79.jpeg?token=a256a2b38ad65bdeeb99a431f0afc2af&s=80A5DA151F71408C59B185F203005035"
         )
 
+        val list2 = MutableList(list1.size) {
+            ""
+        }
+
+        for (i in 0 until list2.size) {
+            list2[i] = list1[list1.size - 1 - i]
+        }
+
+        glideAdapter.mContents = list1
+
         viewBinding?.rcList?.adapter = glideAdapter
         viewBinding?.rcList?.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        viewBinding?.btnRefresh?.setOnClickListener {
+            glideAdapter.mContents = list2
+            glideAdapter.notifyDataSetChanged()
+        }
 
     }
 
@@ -81,8 +99,18 @@ class GlideRecyclerViewActivity : AppCompatActivity() {
             fun load(url: String) {
                 Glide.with(viewBinding.ivGlide)
                     .load(url)
-                    .apply(RequestOptions().skipMemoryCache(true))
-                    .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE))
+//                    .apply(RequestOptions().circleCrop())
+                    .apply(RequestOptions().transform(RoundedCorners(24)))
+//                    .apply(RequestOptions().skipMemoryCache(true))
+//                    .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE))
+                    .into(viewBinding.ivGlide)
+            }
+
+            fun loadWithBlur(url: String) {
+                Glide.with(viewBinding.ivGlide)
+                    .load(url)
+                    .apply(RequestOptions().transform(RoundedCorners(24)))
+                    .apply(RequestOptions.bitmapTransform(BlurTransformation(viewBinding.ivGlide.context)))
                     .into(viewBinding.ivGlide)
             }
         }
@@ -92,7 +120,11 @@ class GlideRecyclerViewActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: GlideViewHolder, position: Int) {
-            holder.load(mContents?.get(position) ?: "")
+            if (position % 2 == 0) {
+                holder.load(mContents?.get(position) ?: "")
+            } else {
+                holder.loadWithBlur(mContents?.get(position) ?: "")
+            }
         }
 
         override fun getItemCount(): Int {
