@@ -19,10 +19,7 @@ import com.example.jetpackdemeo.thirdframework.ThirdFrameworkTestActivity
 import com.example.jetpackdemeo.toast.ToastTestActivity
 import com.example.jetpackdemeo.view.OnePixelView
 import com.example.jetpackdemeo.view.ViewUiTestActivity
-import com.example.jetpackdemeo.view.recyclerview.AutoScrollRecyclerViewActivity
-import com.example.jetpackdemeo.view.recyclerview.GlideRecyclerViewActivity
-import com.example.jetpackdemeo.view.recyclerview.OneScreenSizeRecyclerViewActivity
-import com.example.jetpackdemeo.view.recyclerview.SimpleRecyclerViewActivity
+import com.example.jetpackdemeo.view.recyclerview.*
 import com.example.jetpackdemeo.webview.WebViewActivity
 
 class DemoActivity : AppCompatActivity() {
@@ -144,6 +141,15 @@ class DemoActivity : AppCompatActivity() {
             btnStartOnescreensizeRecyclerview.setOnClickListener {
                 startActivity(
                     Intent(this@DemoActivity, OneScreenSizeRecyclerViewActivity::class.java).putExtra(
+                        SimpleRecyclerViewActivity.SPAN_COUNT,
+                        SimpleRecyclerViewActivity.SPAN_COUNT_10
+                    )
+                )
+            }
+
+            btnStartDiffRecyclerview.setOnClickListener {
+                startActivity(
+                    Intent(this@DemoActivity, DiffRecyclerViewActivity::class.java).putExtra(
                         SimpleRecyclerViewActivity.SPAN_COUNT,
                         SimpleRecyclerViewActivity.SPAN_COUNT_10
                     )
