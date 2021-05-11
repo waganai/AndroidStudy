@@ -156,6 +156,15 @@ class DemoActivity : AppCompatActivity() {
                 )
             }
 
+            btnStartDiffRecyclerview2.setOnClickListener {
+                startActivity(
+                    Intent(this@DemoActivity, DiffRecyclerViewActivity2::class.java).putExtra(
+                        SimpleRecyclerViewActivity.SPAN_COUNT,
+                        SimpleRecyclerViewActivity.SPAN_COUNT_10
+                    )
+                )
+            }
+
             btnStartHandler.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, HandlerTestActivity::class.java))
             }
