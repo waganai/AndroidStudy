@@ -156,6 +156,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".view.recyclerview.OneScreenSizeRecyclerViewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".webview.WebViewActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

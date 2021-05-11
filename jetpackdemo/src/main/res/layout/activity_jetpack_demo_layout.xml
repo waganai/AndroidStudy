@@ -108,6 +108,17 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_start_recyclerview10" />
 
         <Button
+            android:id="@+id/btn_start_onescreensize_recyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Start Glide OneScreen Size RecyclerView"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_glide_recyclerview" />
+
+        <Button
             android:id="@+id/btn_start_handler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,7 +127,7 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_glide_recyclerview" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_onescreensize_recyclerview" />
 
         <Button
             android:id="@+id/btn_start_toast"
