@@ -6,15 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.jetpackdemeo.databinding.ActivityRecyclerviewLayoutBinding
 import com.example.jetpackdemeo.databinding.ItemDiffLayoutBinding
+
 
 class DiffRecyclerViewActivity : AppCompatActivity() {
 
@@ -99,6 +97,13 @@ class DiffRecyclerViewActivity : AppCompatActivity() {
     fun init() {
         viewBinding.apply {
             rcList.apply {
+                itemAnimator?.addDuration = 0
+                itemAnimator?.changeDuration = 0
+                itemAnimator?.moveDuration = 0
+                itemAnimator?.removeDuration = 0
+                (itemAnimator as SimpleItemAnimator).supportsChangeAnimations =
+                    false
+
                 layoutManager = LinearLayoutManager(
                     this@DiffRecyclerViewActivity,
                     LinearLayoutManager.VERTICAL,
@@ -136,7 +141,8 @@ class DiffRecyclerViewActivity : AppCompatActivity() {
                     newItem: DiffDataClass
                 ): Boolean {
                     Log.e(TAG, "areItemsTheSame()")
-                    return oldItem.id == newItem.id
+//                    return oldItem.id == newItem.id
+                    return false
                 }
 
                 override fun areContentsTheSame(

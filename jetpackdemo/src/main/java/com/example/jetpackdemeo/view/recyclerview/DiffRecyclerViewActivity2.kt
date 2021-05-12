@@ -107,9 +107,9 @@ class DiffRecyclerViewActivity2 : AppCompatActivity() {
                 adapter = DiffAdapter2(this@DiffRecyclerViewActivity2)
                 (rcList.adapter as DiffAdapter2).mDataList = (mDataList.toList())
 
-                isNestedScrollingEnabled = false
-                setHasFixedSize(true)
-                isFocusable = false
+//                isNestedScrollingEnabled = false
+//                setHasFixedSize(true)
+//                isFocusable = false
             }
 
             btnRefresh.setOnClickListener {
