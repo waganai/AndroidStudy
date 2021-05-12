@@ -165,6 +165,15 @@ class DemoActivity : AppCompatActivity() {
                 )
             }
 
+            btnStartStaggeredRecyclerview.setOnClickListener {
+                startActivity(
+                    Intent(this@DemoActivity, StaggeredRecyclerViewActivity::class.java).putExtra(
+                        SimpleRecyclerViewActivity.SPAN_COUNT,
+                        SimpleRecyclerViewActivity.SPAN_COUNT_10
+                    )
+                )
+            }
+
             btnStartHandler.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, HandlerTestActivity::class.java))
             }
