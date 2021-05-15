@@ -98,4 +98,7 @@ dependencies {
     kapt 'com.alibaba:arouter-compiler:1.2.1'
 
     api 'androidx.multidex:multidex:2.0.0'
+
+//    api 'com.google.guava:guava:26.0-android'
+    api 'com.google.guava:guava:26.0-jre'
 }

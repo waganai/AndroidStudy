@@ -9,12 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnPreDraw
 import com.example.jetpackdemeo.activity.LifeCycleTestActivity1
 import com.example.jetpackdemeo.context.ContextTestActivity
+import com.example.jetpackdemeo.databinding.ActivityBloomfilterLayoutBinding
 import com.example.jetpackdemeo.databinding.ActivityJetpackDemoLayoutBinding
 import com.example.jetpackdemeo.dialog.DialogTestActivity
 import com.example.jetpackdemeo.fragment.FragmentTestActivity
 import com.example.jetpackdemeo.handler.HandlerTestActivity
 import com.example.jetpackdemeo.ipc.IpcActivity
 import com.example.jetpackdemeo.multithreading.MultithreadingTestActivity
+import com.example.jetpackdemeo.test.BloomFilterTestActivity
 import com.example.jetpackdemeo.thirdframework.ThirdFrameworkTestActivity
 import com.example.jetpackdemeo.toast.ToastTestActivity
 import com.example.jetpackdemeo.view.OnePixelView
@@ -204,6 +206,10 @@ class DemoActivity : AppCompatActivity() {
 
             btnActivityIpc.setOnClickListener {
                 startActivity(Intent(this@DemoActivity, IpcActivity::class.java))
+            }
+
+            btnActivityTestBloomfilter.setOnClickListener {
+                startActivity(Intent(this@DemoActivity, BloomFilterTestActivity::class.java))
             }
         }
     }

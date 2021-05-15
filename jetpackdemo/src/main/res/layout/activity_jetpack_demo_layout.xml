@@ -240,6 +240,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_activity_jetpack_demo" />
 
+        <Button
+            android:id="@+id/btn_activity_test_bloomfilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="BloomFilter"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_activity_ipc" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
