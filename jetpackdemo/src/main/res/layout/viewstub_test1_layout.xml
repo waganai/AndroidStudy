@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_viewstub_test1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.example.jetpackdemeo.view.CustomMarkView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF6695"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="哔哩哔哩-(゜-゜)つロ乾杯~"
+        app:textColor="#0cb6f2"
+        app:textSize="32" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

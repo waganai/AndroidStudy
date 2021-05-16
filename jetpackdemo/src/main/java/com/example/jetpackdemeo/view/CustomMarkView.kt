@@ -28,8 +28,9 @@ class CustomMarkView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) 
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
-
     init {
+        Log.e(TAG, "CustomMarkView($id)")
+
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomMarkView)
 
         mText = typedArray.getString(R.styleable.CustomMarkView_text)

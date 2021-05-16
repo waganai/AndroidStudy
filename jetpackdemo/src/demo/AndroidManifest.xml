@@ -196,6 +196,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".FragmentLoadActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".webview.WebViewActivity"
             android:launchMode="singleTop"

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.jetpackdemeo.databinding.FragmentViewDemoLayoutBinding
 import com.example.jetpackdemeo.view.ViewUiTestActivity
+import com.example.jetpackdemeo.view.viewstub.ViewStubTestFragment
 
 class ViewDemoFragment() : Fragment() {
     companion object {
@@ -39,9 +40,13 @@ class ViewDemoFragment() : Fragment() {
 
     fun init() {
         viewBinding?.apply {
-
             btnCustomview.setOnClickListener {
                 startActivity(Intent(activity, ViewUiTestActivity::class.java))
+            }
+
+            btnViewstub.setOnClickListener {
+                startActivity(Intent(activity, FragmentLoadActivity::class.java)
+                    .putExtra(FragmentLoadActivity.FRAGMENT_CLASS, ViewStubTestFragment::class.qualifiedName))
             }
         }
     }

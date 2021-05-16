@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.jetpackdemeo.view.CustomMarkView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#F4F4F4"
+    app:text="哔哩哔哩-(゜-゜)つロ乾杯~"
+    app:textColor="#0cb6f2"
+    app:textSize="24" />
