@@ -60,6 +60,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_recyclerView" />
 
+        <Button
+            android:id="@+id/btn_coordinatorlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Coordinatorlayout"
+            android:textAllCaps="false"
+            android:textSize="24dp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_viewstub" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 

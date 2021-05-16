@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.jetpackdemeo.databinding.FragmentViewDemoLayoutBinding
 import com.example.jetpackdemeo.view.ViewUiTestActivity
+import com.example.jetpackdemeo.view.cordinatorlayout.CoordinatorLayoutTestFragment
 import com.example.jetpackdemeo.view.viewstub.ViewStubTestFragment
 
 class ViewDemoFragment() : Fragment() {
@@ -45,8 +46,23 @@ class ViewDemoFragment() : Fragment() {
             }
 
             btnViewstub.setOnClickListener {
-                startActivity(Intent(activity, FragmentLoadActivity::class.java)
-                    .putExtra(FragmentLoadActivity.FRAGMENT_CLASS, ViewStubTestFragment::class.qualifiedName))
+                startActivity(
+                    Intent(activity, FragmentLoadActivity::class.java)
+                        .putExtra(
+                            FragmentLoadActivity.FRAGMENT_CLASS,
+                            ViewStubTestFragment::class.qualifiedName
+                        )
+                )
+            }
+
+            btnCoordinatorlayout.setOnClickListener {
+                startActivity(
+                    Intent(activity, FragmentLoadActivity::class.java)
+                        .putExtra(
+                            FragmentLoadActivity.FRAGMENT_CLASS,
+                            CoordinatorLayoutTestFragment::class.qualifiedName
+                        )
+                )
             }
         }
     }
