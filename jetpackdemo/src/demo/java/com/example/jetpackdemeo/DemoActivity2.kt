@@ -5,12 +5,13 @@ import android.util.Log
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
 import com.example.jetpackdemeo.databinding.ActivityDemoLayoutBinding
 
 class DemoActivity2 : AppCompatActivity() {
 
-    private var viewBinding: ActivityDemoLayoutBinding? = null;
+    private var viewBinding: ActivityDemoLayoutBinding? = null
+    private val mFragments = mutableMapOf<Int, Fragment>()
+    private var mCurrentFragmentPageIndex = 0
 
     companion object {
         private val TAG = DemoActivity2::class.simpleName
@@ -29,8 +30,8 @@ class DemoActivity2 : AppCompatActivity() {
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         when (keyCode) {
             KeyEvent.KEYCODE_BACK -> {
-                if (viewBinding?.vpFragment?.currentItem != 0) {
-                    viewBinding?.vpFragment?.currentItem = 0
+                if (getCurrentFragmentPageIndex() != 0) {
+                    replaceFragment(0)
                     return true
                 }
             }
@@ -40,78 +41,83 @@ class DemoActivity2 : AppCompatActivity() {
     }
 
     private fun init() {
-        viewBinding?.apply {
-            vpFragment.adapter = object : FragmentPagerAdapter(
-                supportFragmentManager,
-                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
-            ) {
-                val fragments = mutableMapOf<Int, Fragment>()
+        replaceFragment(0)
+    }
 
-                override fun getCount(): Int {
-                    return 7
-                }
-
-                override fun getItem(position: Int): Fragment {
-                    Log.e(TAG, "getItem($position)")
-
-                    return fragments[position] ?: when (position) {
-                        0 -> {
-                            val fragment = MainDemoFragment.newInstance().setSwitchListener(
-                                object : MainDemoFragment.SwitchMainDemoFragmentPageListener {
-                                    override fun onSwitchFragmentPage(page: Int) {
-                                        //
-                                        Log.e(TAG, "onSwitchFragmentPage($position)")
-                                        //
-                                        vpFragment.currentItem = if (page in 1..6) {
-                                            page
-                                        } else {
-                                            0
-                                        }
-                                    }
-                                })
-                            fragments[0] = fragment
-                            fragment
-                        }
-                        1 -> {
-                            val fragment = PageDemoFragment.newInstance()
-                            fragments[1] = fragment
-                            fragment
-                        }
-                        2 -> {
-                            val fragment = ViewDemoFragment.newInstance()
-                            fragments[2] = fragment
-                            fragment
-                        }
-                        3 -> {
-                            val fragment = ThirdpartyDemoFragment.newInstance()
-                            fragments[3] = fragment
-                            fragment
-                        }
-                        4 -> {
-                            val fragment = ThreadDemoFragment.newInstance()
-                            fragments[4] = fragment
-                            fragment
-                        }
-                        5 -> {
-                            val fragment = ProcessDemoFragment.newInstance()
-                            fragments[5] = fragment
-                            fragment
-                        }
-                        6 -> {
-                            val fragment = TestDemoFragment.newInstance()
-                            fragments[6] = fragment
-                            fragment
-                        }
-                        else -> {
-                            val fragment = MainDemoFragment.newInstance()
-                            fragments[0] = fragment
-                            fragment
-                        }
-                    }
-                }
+    private fun replaceFragment(pageIndex: Int) {
+        if (pageIndex >= 0) {
+            viewBinding?.apply {
+                supportFragmentManager.beginTransaction()
+                    .replace(clFragmentContainer.id, getFragment(pageIndex)).commit()
             }
+        }
+    }
 
-            vpFragment.currentItem = 1
+    private fun getCurrentFragmentPageIndex(): Int {
+        return mCurrentFragmentPageIndex
+    }
+
+    private fun getFragment(pageIndex: Int): Fragment {
+        mCurrentFragmentPageIndex = pageIndex
+        if (mCurrentFragmentPageIndex > 6) {
+            mCurrentFragmentPageIndex = 0
+        }
+
+        return mFragments[pageIndex] ?: when (pageIndex) {
+            0 -> {
+                val fragment = MainDemoFragment.newInstance().setSwitchListener(
+                    object : MainDemoFragment.SwitchMainDemoFragmentPageListener {
+                        override fun onSwitchFragmentPage(page: Int) {
+                            //
+                            Log.e(TAG, "onSwitchFragmentPage($pageIndex)")
+                            //
+                            replaceFragment(
+                                if (page in 1..6) {
+                                    page
+                                } else {
+                                    0
+                                }
+                            )
+                        }
+                    })
+                mFragments[0] = fragment
+                fragment
+            }
+            1 -> {
+                val fragment = PageDemoFragment.newInstance()
+                mFragments[1] = fragment
+                fragment
+            }
+            2 -> {
+                val fragment = ViewDemoFragment.newInstance()
+                mFragments[2] = fragment
+                fragment
+            }
+            3 -> {
+                val fragment = ThirdpartyDemoFragment.newInstance()
+                mFragments[3] = fragment
+                fragment
+            }
+            4 -> {
+                val fragment = ThreadDemoFragment.newInstance()
+                mFragments[4] = fragment
+                fragment
+            }
+            5 -> {
+                val fragment = ProcessDemoFragment.newInstance()
+                mFragments[5] = fragment
+                fragment
+            }
+            6 -> {
+                val fragment = TestDemoFragment.newInstance()
+                mFragments[6] = fragment
+                fragment
+            }
+            else -> {
+                val fragment = MainDemoFragment.newInstance()
+                mFragments[0] = fragment
+                fragment
+            }
         }
     }
 }
