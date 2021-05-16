@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyDemo">
 
-        <activity android:name=".DemoActivity">
+        <activity android:name=".DemoActivity2">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
