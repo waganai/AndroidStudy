@@ -16,10 +16,9 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
-import java.io.InputStream
-import java.io.OutputStream
 import kotlin.text.Charsets.UTF_8
 
+// 需要注意的是，String和输入输出流的转化需要使用Charsets.ISO_8859_1
 class BloomFilterTestActivity : AppCompatActivity() {
 
     private var mViewBinding: ActivityBloomfilterLayoutBinding? = null
@@ -198,10 +197,18 @@ class BloomFilterTestActivity : AppCompatActivity() {
             false
         } else {
             string.apply {
-                val input: InputStream = ByteArrayInputStream(string.toByteArray())
-                mBloomFilter = BloomFilter.readFrom(input, Funnels.stringFunnel(UTF_8))
+                // 注意，此处需要使用Charsets.ISO_8859_1
+                mBloomFilter = BloomFilter.readFrom(
+                    ByteArrayInputStream(toByteArray(Charsets.ISO_8859_1)),
+                    Funnels.stringFunnel(UTF_8)
+                )
 
-                Log.e(TAG, "readBloomFilterFromSp() $mBloomFilter == $mOriginalBloomFilter = ${mBloomFilter == mOriginalBloomFilter}")
+                Log.e(
+                    TAG,
+                    "readBloomFilterFromSp() mBloomFilter == mOriginalBloomFilter = ${
+                        mBloomFilter?.equals(mOriginalBloomFilter)
+                    }"
+                )
             }
 
             true
@@ -219,17 +226,19 @@ class BloomFilterTestActivity : AppCompatActivity() {
 
     private fun writeBloomFilterToSp() {
         try {
-            val outputStream: OutputStream = ByteArrayOutputStream()
-
+            val outputStream = ByteArrayOutputStream()
             mBloomFilter?.writeTo(outputStream)
 
-            val string = outputStream.toString()
-            val outputStream2 = ByteArrayInputStream(string.toByteArray())
+            // 注意，此处需要使用Charsets.ISO_8859_1
+            val string = String(outputStream.toByteArray(), Charsets.ISO_8859_1)
 
-            Log.e(TAG, "writeBloomFilterToSp() $outputStream == $outputStream2 = ${outputStream == outputStream2}")
+            val outputStream2 = ByteArrayOutputStream()
+            outputStream2.write(string.toByteArray(Charsets.ISO_8859_1))
 
-            outputStream
-            outputStream2
+            Log.e(
+                TAG,
+                "writeBloomFilterToSp() outputStream == outputStream2 = ${outputStream == outputStream2}"
+            )
 
             mSharedPreferences.edit().putString(BLOOM_FILTER, string).apply()
 
@@ -239,7 +248,6 @@ class BloomFilterTestActivity : AppCompatActivity() {
         }
     }
 
-
     private fun startWeb(loadUrl: String) {
         startActivity(Intent(this, WebViewActivity::class.java).putExtra(LOAD_URL, loadUrl))
     }
@@ -247,8 +255,8 @@ class BloomFilterTestActivity : AppCompatActivity() {
     companion object {
         private val TAG = BloomFilterTestActivity::class.java.simpleName
 
-        private val AB_FILE = "AB_SP_FILE"
-        private val BLOOM_FILTER = "BLOOM_FILTER"
+        private const val AB_FILE = "AB_SP_FILE"
+        private const val BLOOM_FILTER = "BLOOM_FILTER"
 
         // 一百
         private const val ONE_HUNDRED = 100
