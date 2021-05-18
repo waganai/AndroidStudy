@@ -68,6 +68,7 @@ class ViewDemoFragment() : Fragment() {
 
             //
             //
+            //
             btnCoordinatorlayout2.setOnClickListener {
                 startActivity(
                     Intent(activity, FragmentLoadActivity::class.java)
