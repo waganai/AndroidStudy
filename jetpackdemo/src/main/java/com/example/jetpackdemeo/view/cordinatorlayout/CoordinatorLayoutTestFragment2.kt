@@ -5,21 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.jetpackdemeo.databinding.FragmentCoordinatorlayoutTestLayoutBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.jetpackdemeo.databinding.FragmentCoordinatorlayoutTest2LayoutBinding
 
-class CoordinatorLayoutTestFragment: Fragment() {
+class CoordinatorLayoutTestFragment2: Fragment() {
+
     companion object{
-        private val TAG = CoordinatorLayoutTestFragment::class.simpleName
+        private val TAG = CoordinatorLayoutTestFragment2::class.simpleName
     }
 
-    private val viewBinding by lazy {  FragmentCoordinatorlayoutTestLayoutBinding.inflate(layoutInflater)}
+    private val viewBinding by lazy {   FragmentCoordinatorlayoutTest2LayoutBinding.inflate(layoutInflater)}
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return viewBinding.root
     }
 
@@ -30,10 +31,6 @@ class CoordinatorLayoutTestFragment: Fragment() {
     }
 
     private fun init() {
-        viewBinding?.apply {
-            fbCor.setOnClickListener {
-                Snackbar.make(scrollView, "Snackbar", Snackbar.LENGTH_SHORT).show()
-            }
-        }
+
     }
 }
