@@ -13,7 +13,15 @@ import com.example.jetpackdemeo.databinding.ActivityWebviewLayoutBinding
 
 class WebViewActivity : AppCompatActivity() {
 
+    companion object {
+        const val LOAD_URL = "LOAD_URL"
+    }
+
     var viewBindings: ActivityWebviewLayoutBinding? = null
+
+    private val mLoadUrl by lazy {
+        intent.getStringExtra(LOAD_URL)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -352,7 +360,8 @@ class WebViewActivity : AppCompatActivity() {
                     super.onSafeBrowsingHit(view, request, threatType, callback)
                 }
             }
-            loadUrl("https://www.bilibili.com")
+
+            loadUrl(mLoadUrl ?: "https://www.baidu.com")
         }
     }
 
