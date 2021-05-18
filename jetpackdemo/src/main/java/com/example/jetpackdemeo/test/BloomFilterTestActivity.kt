@@ -179,7 +179,7 @@ class BloomFilterTestActivity : AppCompatActivity() {
 
     private fun checkData(dataCountStr: String): String {
         Log.e(TAG, "checkData() " + dataCountStr + "条数据, start")
-        val contain = mBloomFilter?.mightContain("0") ?: false
+        val contain = mBloomFilter?.mightContain("10000") ?: false
         mBloomFilter = null
         Log.e(TAG, "checkData() " + dataCountStr + "条数据, 查询结果 $contain,  end")
 
@@ -191,28 +191,34 @@ class BloomFilterTestActivity : AppCompatActivity() {
     }
 
     private fun readBloomFilterFromSp(): Boolean {
-        val string: String = mSharedPreferences.getString(BLOOM_FILTER, "").toString()
+        mBloomFilter = BloomFilterUtil.readBloomFilterFromSp(this, AB_FILE, BLOOM_FILTER)
 
-        return if (string == null || string == "") {
-            false
-        } else {
-            string.apply {
-                // 注意，此处需要使用Charsets.ISO_8859_1
-                mBloomFilter = BloomFilter.readFrom(
-                    ByteArrayInputStream(toByteArray(Charsets.ISO_8859_1)),
-                    Funnels.stringFunnel(UTF_8)
-                )
+        Log.e(
+            TAG,
+            "readBloomFilterFromSp() mBloomFilter == mOriginalBloomFilter = ${
+                mBloomFilter?.equals(mOriginalBloomFilter)
+            }"
+        )
 
-                Log.e(
-                    TAG,
-                    "readBloomFilterFromSp() mBloomFilter == mOriginalBloomFilter = ${
-                        mBloomFilter?.equals(mOriginalBloomFilter)
-                    }"
-                )
-            }
+        return mBloomFilter == null
 
-            true
-        }
+//        val string: String = mSharedPreferences.getString(BLOOM_FILTER, "").toString()
+//
+//        return if (string == null || string == "") {
+//            false
+//        } else {
+//            string.apply {
+//                // 注意，此处需要使用Charsets.ISO_8859_1
+//                mBloomFilter = BloomFilter.readFrom(
+//                    ByteArrayInputStream(toByteArray(Charsets.ISO_8859_1)),
+//                    Funnels.stringFunnel(UTF_8)
+//                )
+//
+//
+//            }
+//
+//            true
+//        }
     }
 
     private fun generateBloomFilter(dataCount: Int) {
@@ -225,27 +231,24 @@ class BloomFilterTestActivity : AppCompatActivity() {
     }
 
     private fun writeBloomFilterToSp() {
-        try {
-            val outputStream = ByteArrayOutputStream()
-            mBloomFilter?.writeTo(outputStream)
+        BloomFilterUtil.writeBloomFilterToSp(mBloomFilter, this, AB_FILE, BLOOM_FILTER)
 
-            // 注意，此处需要使用Charsets.ISO_8859_1
-            val string = String(outputStream.toByteArray(), Charsets.ISO_8859_1)
-
-            val outputStream2 = ByteArrayOutputStream()
-            outputStream2.write(string.toByteArray(Charsets.ISO_8859_1))
-
-            Log.e(
-                TAG,
-                "writeBloomFilterToSp() outputStream == outputStream2 = ${outputStream == outputStream2}"
-            )
-
-            mSharedPreferences.edit().putString(BLOOM_FILTER, string).apply()
-
-            outputStream.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+//        try {
+//            val outputStream = ByteArrayOutputStream()
+//            mBloomFilter?.writeTo(outputStream)
+//
+//            // 注意，此处需要使用Charsets.ISO_8859_1
+//            val string = String(outputStream.toByteArray(), Charsets.ISO_8859_1)
+//
+//            val outputStream2 = ByteArrayOutputStream()
+//            outputStream2.write(string.toByteArray(Charsets.ISO_8859_1))
+//
+//            mSharedPreferences.edit().putString(BLOOM_FILTER, string).apply()
+//
+//            outputStream.close()
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
     }
 
     private fun startWeb(loadUrl: String) {
