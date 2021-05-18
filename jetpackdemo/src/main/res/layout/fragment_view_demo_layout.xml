@@ -73,6 +73,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_viewstub" />
 
+        <Button
+            android:id="@+id/btn_coordinatorlayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Coordinatorlayout2"
+            android:textAllCaps="false"
+            android:textSize="24dp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_coordinatorlayout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 
