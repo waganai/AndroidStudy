@@ -7,6 +7,21 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 
 object BloomFilterUtil {
+    fun generateBloomFilter(list: List<String>): BloomFilter<String> {
+        // 此处精度和ios保持一致，ios默认是1.0/(size + 1)
+        val bloomFilter :BloomFilter<String> = BloomFilter.create(
+            Funnels.stringFunnel(Charsets.UTF_8),
+            list.size,
+            1.0 / (list.size + 1)
+        )
+
+        list.forEach {
+            bloomFilter.put(it)
+        }
+
+        return bloomFilter
+    }
+
     fun writeBloomFilterToSp(
         bloomFilter: BloomFilter<String>?,
         context: Context,
@@ -21,8 +36,8 @@ object BloomFilterUtil {
                 // 注意，此处需要使用Charsets.ISO_8859_1
                 val string = String(outputStream.toByteArray(), Charsets.ISO_8859_1)
 
-                val outputStream2 = ByteArrayOutputStream()
-                outputStream2.write(string.toByteArray(Charsets.ISO_8859_1))
+//                val outputStream2 = ByteArrayOutputStream()
+//                outputStream2.write(string.toByteArray(Charsets.ISO_8859_1))
 
                 context.getSharedPreferences(fileName, Context.MODE_PRIVATE).edit()
                     .putString(valueName, string).apply()

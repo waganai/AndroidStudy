@@ -223,10 +223,19 @@ class BloomFilterTestActivity : AppCompatActivity() {
 
     private fun generateBloomFilter(dataCount: Int) {
         mOriginalBloomFilter = null
+
+        val list = mutableListOf<String>()
+        for( i in 0 until  dataCount) {
+            list.add("$i")
+        }
+
+        mOriginalBloomFilter = BloomFilterUtil.generateBloomFilter(list)
+
         mOriginalBloomFilter = BloomFilter.create(Funnels.stringFunnel(UTF_8), dataCount)
         for (i in 0 until dataCount) {
             mOriginalBloomFilter?.put("" + i)
         }
+
         mBloomFilter = mOriginalBloomFilter
     }
 
