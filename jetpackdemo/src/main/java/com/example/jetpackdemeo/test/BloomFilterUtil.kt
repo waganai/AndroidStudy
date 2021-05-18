@@ -36,9 +36,6 @@ object BloomFilterUtil {
                 // 注意，此处需要使用Charsets.ISO_8859_1
                 val string = String(outputStream.toByteArray(), Charsets.ISO_8859_1)
 
-//                val outputStream2 = ByteArrayOutputStream()
-//                outputStream2.write(string.toByteArray(Charsets.ISO_8859_1))
-
                 context.getSharedPreferences(fileName, Context.MODE_PRIVATE).edit()
                     .putString(valueName, string).apply()
 

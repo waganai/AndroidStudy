@@ -14,8 +14,6 @@ import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import java.io.ByteArrayInputStream
-import java.io.ByteArrayOutputStream
 import kotlin.text.Charsets.UTF_8
 
 // 需要注意的是，String和输入输出流的转化需要使用Charsets.ISO_8859_1
@@ -113,7 +111,7 @@ class BloomFilterTestActivity : AppCompatActivity() {
         }
 
         mHasStart = true
-        mViewBinding?.tvStatus?.text = "数据$dataCountStr, 精度$mPrecisionStr"
+        mViewBinding?.tvStatus?.text = "数据$dataCountStr, 精度${1.0/(dataCount + 1)*100}%"
 
         test(dataCount)
     }
@@ -201,24 +199,6 @@ class BloomFilterTestActivity : AppCompatActivity() {
         )
 
         return mBloomFilter == null
-
-//        val string: String = mSharedPreferences.getString(BLOOM_FILTER, "").toString()
-//
-//        return if (string == null || string == "") {
-//            false
-//        } else {
-//            string.apply {
-//                // 注意，此处需要使用Charsets.ISO_8859_1
-//                mBloomFilter = BloomFilter.readFrom(
-//                    ByteArrayInputStream(toByteArray(Charsets.ISO_8859_1)),
-//                    Funnels.stringFunnel(UTF_8)
-//                )
-//
-//
-//            }
-//
-//            true
-//        }
     }
 
     private fun generateBloomFilter(dataCount: Int) {
@@ -241,23 +221,6 @@ class BloomFilterTestActivity : AppCompatActivity() {
 
     private fun writeBloomFilterToSp() {
         BloomFilterUtil.writeBloomFilterToSp(mBloomFilter, this, AB_FILE, BLOOM_FILTER)
-
-//        try {
-//            val outputStream = ByteArrayOutputStream()
-//            mBloomFilter?.writeTo(outputStream)
-//
-//            // 注意，此处需要使用Charsets.ISO_8859_1
-//            val string = String(outputStream.toByteArray(), Charsets.ISO_8859_1)
-//
-//            val outputStream2 = ByteArrayOutputStream()
-//            outputStream2.write(string.toByteArray(Charsets.ISO_8859_1))
-//
-//            mSharedPreferences.edit().putString(BLOOM_FILTER, string).apply()
-//
-//            outputStream.close()
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//        }
     }
 
     private fun startWeb(loadUrl: String) {
