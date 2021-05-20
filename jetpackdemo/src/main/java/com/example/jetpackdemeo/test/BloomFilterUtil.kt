@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream
 object BloomFilterUtil {
     fun generateBloomFilter(list: List<String>): BloomFilter<String> {
         // 此处精度和ios保持一致，ios默认是1.0/(size + 1)
-        val bloomFilter :BloomFilter<String> = BloomFilter.create(
+        val bloomFilter: BloomFilter<String> = BloomFilter.create(
             Funnels.stringFunnel(Charsets.UTF_8),
             list.size,
             1.0 / (list.size + 1)
@@ -28,6 +28,9 @@ object BloomFilterUtil {
         fileName: String,
         valueName: String
     ) {
+//        val key = HexUtils.toHexFormat("https://bilibili.com/huiyuangou/goods/detail.html?name=2233https://bilibili.com/huiyuangou/goods/detail.html?name=2233")
+        val key =
+            "https://bilibili.com/huiyuangou/goods/detail.html?name=2233https://bilibili.com/huiyuangou/goods/detail.html?name=2233"
         bloomFilter?.apply {
             try {
                 val outputStream = ByteArrayOutputStream()
@@ -37,7 +40,7 @@ object BloomFilterUtil {
                 val string = String(outputStream.toByteArray(), Charsets.ISO_8859_1)
 
                 context.getSharedPreferences(fileName, Context.MODE_PRIVATE).edit()
-                    .putString(valueName, string).apply()
+                    .putString(key, string).apply()
 
                 outputStream.close()
             } catch (e: Exception) {
@@ -51,7 +54,13 @@ object BloomFilterUtil {
         fileName: String,
         valueName: String
     ): BloomFilter<String>? {
-        return context.getSharedPreferences(fileName, Context.MODE_PRIVATE).getString(valueName, "")
+//        val key =
+//            HexUtils.toHexFormat("https://bilibili.com/huiyuangou/goods/detail.html?name=2233https://bilibili.com/huiyuangou/goods/detail.html?name=2233")
+
+        val key =
+            "https://bilibili.com/huiyuangou/goods/detail.html?name=2233https://bilibili.com/huiyuangou/goods/detail.html?name=2233"
+
+        return context.getSharedPreferences(fileName, Context.MODE_PRIVATE).getString(key, "")
             ?.run {
                 // 注意，此处需要使用Charsets.ISO_8859_1
                 BloomFilter.readFrom(
