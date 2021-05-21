@@ -38,6 +38,8 @@ captures/
 
 # IntelliJ
 *.iml
+.idea/
+.idea/*
 .idea/misc.xml
 .idea/qaplug_profiles.xml
 .idea/workspace.xml
