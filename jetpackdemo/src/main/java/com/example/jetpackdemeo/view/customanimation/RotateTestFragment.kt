@@ -56,7 +56,7 @@ class RotateTestFragment : Fragment() {
                     0F,
                     90F,
                     tvRoate.width.toFloat() / 2,
-                    tvRoate.height.toFloat(),
+                    tvRoate.height.toFloat()/2,
                     0F,
                     true
                 )
@@ -83,7 +83,7 @@ class RotateTestFragment : Fragment() {
                     -90F,
                     0F,
                     tvRoate.width.toFloat() / 2,
-                    tvRoate.height.toFloat(),
+                    tvRoate.height.toFloat()/2,
                     0F,
                     true
                 )
