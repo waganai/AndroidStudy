@@ -10,6 +10,7 @@ import com.example.jetpackdemeo.databinding.FragmentViewDemoLayoutBinding
 import com.example.jetpackdemeo.view.ViewUiTestActivity
 import com.example.jetpackdemeo.view.cordinatorlayout.CoordinatorLayoutTestFragment
 import com.example.jetpackdemeo.view.cordinatorlayout.CoordinatorLayoutTestFragment2
+import com.example.jetpackdemeo.view.customanimation.FlipAnimationFragment
 import com.example.jetpackdemeo.view.viewstub.ViewStubTestFragment
 
 class ViewDemoFragment() : Fragment() {
@@ -66,9 +67,6 @@ class ViewDemoFragment() : Fragment() {
                 )
             }
 
-            //
-            //
-            //
             btnCoordinatorlayout2.setOnClickListener {
                 startActivity(
                     Intent(activity, FragmentLoadActivity::class.java)
@@ -76,6 +74,15 @@ class ViewDemoFragment() : Fragment() {
                             FragmentLoadActivity.FRAGMENT_CLASS,
                             CoordinatorLayoutTestFragment2::class.qualifiedName
                         )
+                )
+            }
+
+            btnFlipAniamtion.setOnClickListener {
+                startActivity(
+                    Intent(activity, FragmentLoadActivity::class.java).putExtra(
+                        FragmentLoadActivity.FRAGMENT_CLASS,
+                        FlipAnimationFragment::class.qualifiedName
+                    )
                 )
             }
         }
